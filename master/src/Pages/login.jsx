@@ -4,7 +4,7 @@ import Button from "../components/Elements/Button"
 
 const LoginPage = () =>  {
   return (
-    <AuthLayout tittle='Login' >
+    <AuthLayout tittle='Login' type='login'>
       <FormLogin/>
       <Button variant="bg-blue-600 w-full">Login</Button>
     </AuthLayout>

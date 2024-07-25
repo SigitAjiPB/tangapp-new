@@ -4,7 +4,7 @@ import Button from "../components/Elements/Button"
 
 const RegisterPage = () =>  {
   return (
-    <AuthLayout tittle='Register' >
+    <AuthLayout tittle='Register' type='register'>
       <FormRegister/>
       <Button variant="bg-blue-600 w-full">Register</Button>
     </AuthLayout>
