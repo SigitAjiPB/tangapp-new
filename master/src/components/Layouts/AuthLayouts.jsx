@@ -4,11 +4,13 @@ const AuthLayout = (props) => {
 
     const {children, type, tittle} = props;
   return (
-    <div className="w-full max-w-xs">
-      <h1 className="text-3xl font-bold mb-2 text-blue-600">Login</h1>
-      <p className="font-medium text-slate-500 mb-8">Welcome, pls Enter your Details</p>
-      {children}
-      <NavAuth type={type}></NavAuth>
+    <div className="flex justify-center items-center h-screen">
+      <div className="w-full max-w-xs">
+        <h1 className="text-3xl font-bold mb-2 text-blue-600">{tittle}</h1>
+        <p className="font-medium text-slate-500 mb-8">Welcome, pls Enter your Details</p>
+        {children}
+        <NavAuth type={type}></NavAuth>
+      </div>
     </div>
   )
 }
