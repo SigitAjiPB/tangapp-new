@@ -1,5 +1,5 @@
 import Button from "../components/Elements/Button"
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import EventFormPage from "./formEvent"
 
 const HomePage = () => {
@@ -263,12 +263,12 @@ const HomePage = () => {
                     </li>
 
                     <li>
-                        <a
-                        href="#"
+                        <Link
+                        to='/eventform'
                         className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                         >
                         Billing
-                        </a>
+                        </Link>
                     </li>
 
                     <li>
@@ -405,8 +405,11 @@ const HomePage = () => {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <div className="sm:flex sm:gap-4">
-                                <Button variant="bg-teal-600 text-white w-full" onClick={handleLogin}>Login</Button>
+                            <div onSubmit={handleLogin} className="sm:flex sm:gap-4">
+                                <form onSubmit={handleLogin}>
+
+                                <Button variant="bg-teal-600 text-white w-full" onClick={handleLogin} type="submit">Login</Button>
+                                </form>
 
                                 <div className="hidden sm:flex">
                                     <Button variant="text-teal-600 bg-slate-100 w-full " type="submit">Register</Button>
@@ -431,9 +434,7 @@ const HomePage = () => {
                         </div>
                     </div>
                 </header>
-
-                <EventFormPage></EventFormPage>
-               
+                <Outlet></Outlet>
             </div>
         </div>
     )

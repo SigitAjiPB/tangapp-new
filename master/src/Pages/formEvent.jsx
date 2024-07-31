@@ -40,8 +40,8 @@ const EventFormPage = ()=> {
     return(
         <div className="p-8 flex flex-col">
 
-            <div className="overflow-x-auto">
-            <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+            <div className="overflow-x-auto rounded-lg">
+            <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm ">
                 <thead className="ltr:text-left rtl:text-right">
                 <tr>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">No</th>
@@ -51,7 +51,6 @@ const EventFormPage = ()=> {
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Event Cost</th>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Participants</th>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Details</th>
-                    <th className="px-4 py-2"></th>
                 </tr>
                 </thead>
 
@@ -66,12 +65,12 @@ const EventFormPage = ()=> {
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">Rp. {" "}{event.totalCost.toLocaleString('id-ID', {styles:"currency", currency:"IDR"})}</td>
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.participants.length}</td>
                                 <td className="whitespace-nowrap px-4 py-2 ">
-                                <a
-                                    href="#"
-                                    className="inline-block rounded bg-sky-400 px-4 py-2 text-xs font-medium text-white hover:bg-sky-500"
-                                >
-                                    View
-                                </a>
+                                    <a
+                                        href="#"
+                                        className="inline-block rounded bg-sky-400 px-4 py-2 text-xs font-medium text-white hover:bg-sky-500"
+                                    >
+                                        View
+                                    </a>
                                 </td>
                             </tr>
                         ))
