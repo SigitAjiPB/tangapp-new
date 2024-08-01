@@ -16,6 +16,7 @@ const HomePage = () => {
     }
     return (
         <div className="flex w-full h-screen overflow-y-scroll">
+{/* Side Menu */}
             <div className=" sticky top-0 peer flex w-16 flex-col justify-between border-e bg-white max-w-min">
                 <div>
 
@@ -204,7 +205,9 @@ const HomePage = () => {
 
                 </div>
             </div>
+{/* End Side Menu */}
 
+{/* Hover Side Menu */}
             <div className="sticky top-0 peer-hover:flex hover:flex hidden flex-col justify-between border-e bg-white min-w-max">
                 <div className="px-4 py-6">
                     <ul className=" space-y-1">
@@ -357,13 +360,15 @@ const HomePage = () => {
                     </a>
                 </div>
             </div>
+{/* End Hover Side Menu */}
 
-            <div className="flex flex-col w-full">
-                <header className="bg-white w-full h-max sticky top-0">
-                    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+{/* Hero */}
+            <div className="flex flex-col w-full ">
+                <header className="bg-white w-full h-max sticky top-0 shadow-md">
+                    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
                         <div className="flex h-16 items-center justify-between">
                         <div className="md:flex md:items-center md:gap-12">
-                            <a className="block text-teal-600" href="#">
+                            <a className="block text-sky-600" href="#">
                             <span className="sr-only">Home</span>
                             <svg className="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -378,27 +383,27 @@ const HomePage = () => {
                             <nav aria-label="Global">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
-                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
+                                <a className="text-sky-500 transition hover:text-sky-500/75" href="#"> About </a>
                                 </li>
 
                                 <li>
-                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Careers </a>
+                                <a className="text-sky-500 transition hover:text-sky-500/75" href="#"> Careers </a>
                                 </li>
 
                                 <li>
-                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> History </a>
+                                <a className="text-sky-500 transition hover:text-sky-500/75" href="#"> History </a>
                                 </li>
 
                                 <li>
-                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Services </a>
+                                <a className="text-sky-500 transition hover:text-sky-500/75" href="#"> Services </a>
                                 </li>
 
                                 <li>
-                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Projects </a>
+                                <a className="text-sky-500 transition hover:text-sky-500/75" href="#"> Projects </a>
                                 </li>
 
                                 <li>
-                                <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
+                                <a className="text-sky-500 transition hover:text-sky-500/75" href="#"> Blog </a>
                                 </li>
                             </ul>
                             </nav>
@@ -408,11 +413,11 @@ const HomePage = () => {
                             <div onSubmit={handleLogin} className="sm:flex sm:gap-4">
                                 <form onSubmit={handleLogin}>
 
-                                <Button variant="bg-teal-600 text-white w-full" onClick={handleLogin} type="submit">Login</Button>
+                                <Button variant="bg-sky-600 text-white w-full" onClick={handleLogin} type="submit">Login</Button>
                                 </form>
 
                                 <div className="hidden sm:flex">
-                                    <Button variant="text-teal-600 bg-slate-100 w-full " type="submit">Register</Button>
+                                    <Button variant="text-sky-600 bg-slate-100 w-full " type="submit">Register</Button>
                                 </div>
                             </div>
 
@@ -436,6 +441,7 @@ const HomePage = () => {
                 </header>
                 <Outlet></Outlet>
             </div>
+{/* End Hero */}
         </div>
     )
 }
