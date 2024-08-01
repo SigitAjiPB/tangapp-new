@@ -1,6 +1,6 @@
 import Button from "../components/Elements/Button"
 import { Link, Outlet } from "react-router-dom"
-import EventFormPage from "./formEvent"
+import BillingPage from "./billings"
 
 const HomePage = () => {
     const email = localStorage.getItem('email')
@@ -264,7 +264,7 @@ const HomePage = () => {
 
                     <li>
                         <Link
-                        to='/eventform'
+                        to='/billings'
                         className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                         >
                         Billing

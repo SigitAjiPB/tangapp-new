@@ -35,10 +35,10 @@ const events = [
 
 ]
 
-const EventFormPage = ()=> {
+const BillingPage = ()=> {
     const [nameEvent, setNameEvent] = useState([''])
     return(
-        <div className="p-8 flex flex-col">
+        <div className="mt-8  flex flex-col">
 
             <div className="overflow-x-auto rounded-lg">
             <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm ">
@@ -86,4 +86,4 @@ const EventFormPage = ()=> {
 
 }
 
-export default EventFormPage
+export default BillingPage

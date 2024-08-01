@@ -3,8 +3,7 @@ import LoginPage from "./Pages/login"
 import { Routes, Route, Outlet } from "react-router-dom"
 import RegisterPage from "./Pages/register"
 import HomePage from "./Pages/home"
-import EventFormPage from "./Pages/formEvent"
-// import HomePage from "./Pages/home"
+import BillingPage from "./Pages/billings"
 
 function Dashboard() {
   return (
@@ -23,7 +22,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Dashboard/>}>
-          <Route path="eventform" element={<EventFormPage />} />
+          <Route path="billings" element={<BillingPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
