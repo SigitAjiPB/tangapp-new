@@ -7,7 +7,7 @@ const FormRegister =  () => {
       label='Full Name' 
       type='text' 
       placeholder='Inser Your Name Here' 
-      name='Full Name'/>
+      name='full_name'/>
 
       <InputForm 
       label='Email' 

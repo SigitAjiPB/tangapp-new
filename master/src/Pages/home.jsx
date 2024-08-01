@@ -15,10 +15,10 @@ const HomePage = () => {
         window.location.href = '/login'
     }
     return (
-        <div className="flex w-full h-screen overflow-y-scroll">
+        <div className="flex">
 {/* Side Menu */}
-            <div className=" sticky top-0 peer flex w-16 flex-col justify-between border-e bg-white max-w-min">
-                <div>
+            <div className="peer hidden md:flex w-16 md:flex-col md:justify-between border-e bg-white max-w-min">
+                <div className="sticky top-0">
 
                     <div className="border-t border-gray-100">
                     <div className="px-2">
