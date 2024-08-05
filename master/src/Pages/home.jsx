@@ -1,6 +1,5 @@
 import Button from "../components/Elements/Button"
 import { Link, Outlet } from "react-router-dom"
-import BillingPage from "./billings"
 
 const HomePage = () => {
     const email = localStorage.getItem('email')
@@ -15,9 +14,10 @@ const HomePage = () => {
         window.location.href = '/login'
     }
     return (
-        <div className="flex h-screen">
+        <div className="relative flex">
+
 {/* Side Menu */}
-            <div className="peer hidden md:flex w-16 md:flex-col md:justify-between border-e bg-white max-w-min">
+            <div className=" sticky top-0 h-screen  peer hidden md:flex w-16 md:flex-col md:justify-between border-e bg-white max-w-min">
                 <div className="sticky top-0">
 
                     <div className="border-t border-gray-100">
@@ -208,7 +208,7 @@ const HomePage = () => {
 {/* End Side Menu */}
 
 {/* Hover Side Menu */}
-            <div className="sticky top-0 bottom-0 peer-hover:flex hover:flex hidden flex-col justify-between border-e bg-white min-w-max">
+            <div className=" sticky top-0 h-screen peer-hover:flex hover:flex hidden flex-col justify-between border-e bg-white min-w-max">
                 <div className="px-4 py-6">
                     <ul className=" space-y-1">
                     <li>
@@ -359,7 +359,7 @@ const HomePage = () => {
                     </div>
                     </a>
                 </div>
-            </div>
+            </div> 
 {/* End Hover Side Menu */}
 
 {/* Hero */}

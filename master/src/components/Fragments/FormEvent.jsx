@@ -1,4 +1,5 @@
 import InputForm from "../Elements/Input"
+import TextareaForm from "../Elements/Textarea"
 
 const FormEvent = ()=> {
     return (
@@ -7,7 +8,7 @@ const FormEvent = ()=> {
             wrapp='col-span-6 sm:col-span-3'
             label='Event Name' 
             type='text' 
-            placeholder='Inser Your Event Name Here' 
+            placeholder='Event Name' 
             name='event_name'
             htmlFor='EventName'
             labelStyle="block text-sm font-medium text-gray-700"
@@ -17,7 +18,7 @@ const FormEvent = ()=> {
             wrapp='col-span-6 sm:col-span-3'
             label='Date of Event' 
             type='date' 
-            placeholder='Inser Your Event Date Here' 
+            placeholder='Event Date' 
             name='event_date'
             htmlFor='EventDate'
             labelStyle="block text-sm font-medium text-gray-700"
@@ -27,7 +28,7 @@ const FormEvent = ()=> {
             wrapp='col-span-6 sm:col-span-3'
             label='Event Orgenizer' 
             type='text' 
-            placeholder='Inser Event Orgenigger Here' 
+            placeholder='Event Orgenigger' 
             name='event_orgenizer'
             htmlFor='EventOrgenizer'
             labelStyle="block text-sm font-medium text-gray-700"
@@ -36,12 +37,20 @@ const FormEvent = ()=> {
             wrapp='col-span-6 sm:col-span-3'
             label='Event Cost' 
             type='number' 
-            placeholder='Inser Your Event Cost Here' 
+            placeholder='Event Cost' 
             name='event_cost'
             htmlFor='EventCost'
             labelStyle="block text-sm font-medium text-gray-700"
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
             
+            <TextareaForm
+            wrapp='col-span-12 sm:col-span-6'
+            label='Event Bio'
+            htmlFor='EventBio'
+            placeholder='Event Bio'
+            labelStyle="block text-sm font-medium text-gray-700"
+            textareaStyle='mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none'
+            />
             
         </form>
     )
