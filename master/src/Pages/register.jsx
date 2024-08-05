@@ -6,7 +6,7 @@ const RegisterPage = () =>  {
   return (
     <AuthLayout tittle='Register' type='register'>
       <FormRegister/>
-      <Button variant="bg-blue-600 w-full">Register</Button>
+      <Button variant="bg-sky-400 text-white font-bold w-full">Register</Button>
     </AuthLayout>
   )
 }

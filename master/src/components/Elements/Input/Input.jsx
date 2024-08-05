@@ -1,15 +1,13 @@
 const Input = (props) => {
-  const {type, placeholder, name, id} = props;
+  const {type, placeholder, name,id, inputStyle} = props;
   return (
     <input
       type={type}
-      className="text-sm rounded border w-full text-slate-700 placeholder: opacity-50 p-2"
+      className={inputStyle}
       placeholder={placeholder}
       name={name}
       id={id}
     />
-
-
   )
 }
 

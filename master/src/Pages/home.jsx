@@ -208,7 +208,7 @@ const HomePage = () => {
 {/* End Side Menu */}
 
 {/* Hover Side Menu */}
-            <div className="sticky top-0 peer-hover:flex hover:flex hidden flex-col justify-between border-e bg-white min-w-max">
+            <div className="sticky top-0 bottom-0 peer-hover:flex hover:flex hidden flex-col justify-between border-e bg-white min-w-max">
                 <div className="px-4 py-6">
                     <ul className=" space-y-1">
                     <li>

@@ -1,10 +1,10 @@
 
 const Label = (props)=> {
-  const {children, htmlFor} = props
+  const {children, htmlFor, labelStyle} = props
   return (
     <label
       htmlFor={htmlFor}
-      className="block text-slate-700 text-sm font-bold mb-2">
+      className={labelStyle}>
       {children}
     </label>
 

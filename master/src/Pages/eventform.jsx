@@ -13,10 +13,10 @@ const EventFormPage = () => {
                     </aside> */}
 
                     <main
-                    className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 border"
+                    className="flex items-center bg-sky-50 justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 border"
                     >
                         <div className="max-w-xl lg:max-w-3xl">
-                            <a className="block text-blue-600" href="#">
+                            <a className="block text-sky-600" href="#">
                                 <span className="sr-only">Home</span>
                                 <svg
                                     className="h-8 sm:h-10"
@@ -32,7 +32,7 @@ const EventFormPage = () => {
                             </a>
 
                             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                            Welcome to Squid 🦑
+                            Welcome to Tangapp
                             </h1>
 
                             <p className="mt-4 leading-relaxed text-gray-500">
@@ -40,7 +40,9 @@ const EventFormPage = () => {
                             quibusdam aperiam voluptatum.
                             </p>
 
-                            <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+                            <FormEvent></FormEvent>
+
+                            {/* <form action="#" className="mt-8 grid grid-cols-6 gap-6">
                                 <div className="col-span-6 sm:col-span-3">
                                     <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
                                     First Name
@@ -138,7 +140,7 @@ const EventFormPage = () => {
                                     <a href="#" className="text-gray-700 underline">Log in</a>.
                                     </p>
                                 </div>
-                            </form>
+                            </form> */}
                             {/* <FormEvent> </FormEvent> */}
                         </div>
                     </main>
