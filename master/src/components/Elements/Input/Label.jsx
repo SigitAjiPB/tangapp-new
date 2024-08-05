@@ -1,6 +1,6 @@
 
 const Label = (props)=> {
-  const {htmlFor, children} = props
+  const {children, htmlFor} = props
   return (
     <label
       htmlFor={htmlFor}

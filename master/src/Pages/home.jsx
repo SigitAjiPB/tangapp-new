@@ -15,7 +15,7 @@ const HomePage = () => {
         window.location.href = '/login'
     }
     return (
-        <div className="flex">
+        <div className="flex h-screen">
 {/* Side Menu */}
             <div className="peer hidden md:flex w-16 md:flex-col md:justify-between border-e bg-white max-w-min">
                 <div className="sticky top-0">

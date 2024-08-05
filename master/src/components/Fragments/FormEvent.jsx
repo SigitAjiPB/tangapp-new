@@ -2,17 +2,18 @@ import InputForm from "../Elements/Input"
 
 const FormEvent = ()=> {
     return (
-        <form >
+        <form className="mt-8 grid grid-cols-6 gap-6">
             <InputForm 
             label='Event Name' 
             type='text' 
             placeholder='Event Name' 
-            name='eventName'/>
+            htmlFor='eventName'
+            />
             <InputForm 
             label='Event Name' 
             type='text' 
             placeholder='Event Name' 
-            name='eventName'/>
+            htmlFor='eventName'/>
         </form>
     )
 }
