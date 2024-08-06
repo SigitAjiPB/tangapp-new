@@ -68,10 +68,10 @@ const BillingPage = ()=> {
                                 <td className="whitespace-nowrap px-4 py-2 ">
                                     <a
                                         href="#"
-                                        className="flex justify-center items-center rounded  bg-sky-400 py-2 text-xs font-medium text-white hover:bg-sky-500"
+                                        className="flex min-w-min gap-2 justify-center items-center rounded  bg-sky-400 py-2 text-xs font-medium text-white hover:bg-sky-500"
                                     >
-                                        view
-                                        <img src={eyeView} alt="EyeView" className='h-3 text-center pl-2'  />
+                                        <p className='hidden lg:inline-block'>View</p>
+                                        <img src={eyeView} alt="EyeView" className='h-3 text-center'  />
                                     </a>
                                 </td>
                             </tr>
