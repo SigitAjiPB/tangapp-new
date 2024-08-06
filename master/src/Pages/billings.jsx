@@ -1,3 +1,4 @@
+import eyeView from '../assets/svg/eye.svg'
 import { useState } from "react";
 
 const email = localStorage.getItem('email')
@@ -57,7 +58,7 @@ const BillingPage = ()=> {
                 <tbody className="divide-y divide-gray-200">
                     {
                         events.map((event) => (
-                            <tr key={event.id} className=" text-center odd:bg-sky-200">
+                            <tr key={event.id} className=" text-center odd:bg-sky-50">
                                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 flex justify-center items-center">{event.id}</td>
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.name}</td>
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.date}</td>
@@ -67,9 +68,10 @@ const BillingPage = ()=> {
                                 <td className="whitespace-nowrap px-4 py-2 ">
                                     <a
                                         href="#"
-                                        className="inline-block rounded bg-sky-400 px-4 py-2 text-xs font-medium text-white hover:bg-sky-500"
+                                        className="flex justify-center items-center rounded  bg-sky-400 py-2 text-xs font-medium text-white hover:bg-sky-500"
                                     >
-                                        View
+                                        view
+                                        <img src={eyeView} alt="EyeView" className='h-3 text-center pl-2'  />
                                     </a>
                                 </td>
                             </tr>
