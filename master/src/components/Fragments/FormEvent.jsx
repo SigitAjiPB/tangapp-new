@@ -1,8 +1,25 @@
 import InputForm from "../Elements/Input"
 import TextareaForm from "../Elements/Textarea"
 import Button from "../Elements/Button"
+import { useState } from "react"
 
 const FormEvent = ()=> {
+    const [event, setEvent] = useState ([
+        {
+            id: '1',
+            qty: 1
+        }
+    ])
+
+    const handleAddToList = (id) => {[
+        setEvent([
+            ...event,
+            {
+                id
+            }
+        ])
+    ]}
+
     return (
         <form className="mt-8 grid grid-cols-6 gap-6">
             <InputForm 
@@ -34,6 +51,7 @@ const FormEvent = ()=> {
             htmlFor='EventOrgenizer'
             labelStyle="block text-sm font-medium text-gray-700"
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
+
             <InputForm 
             wrapp='col-span-6 sm:col-span-2'
             label='Event Cost' 
@@ -44,8 +62,6 @@ const FormEvent = ()=> {
             labelStyle="block text-sm font-medium text-gray-700"
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
             
-            <Button variant='col-span-4 bg-sky-400 w-full text-white font-bold sm:row-start-3 sm:col-span-2'>Submit</Button>
-
             <TextareaForm
             wrapp='col-span-12 sm:col-span-6'
             label='Event Bio'
@@ -55,7 +71,13 @@ const FormEvent = ()=> {
             textareaStyle='mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none'
             />
 
-            {/* <Button variant='col-span-12 bg-sky-400 w-full text-white font-bold sm:col-span-2'>Submit</Button> */}
+            <Button 
+            type='submit'   
+            onClick = {()=> handleAddToList()}
+            variant='col-span-4 bg-sky-400 w-full text-white font-bold sm:row-start-3 sm:col-span-2'>
+                Submit
+            </Button>
+
             
         </form>
     )

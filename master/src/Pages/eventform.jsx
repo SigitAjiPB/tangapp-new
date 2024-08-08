@@ -1,4 +1,5 @@
 import FormEvent from "../components/Fragments/FormEvent"
+import DetailPreview from "../components/Fragments/DetailPreview"
 const EventFormPage = () => {
     return (
         <>
@@ -11,7 +12,7 @@ const EventFormPage = () => {
                     className="flex  bg-sky-50 justify-center px-8 py-8 sm:px-12 lg:col-span-6 lg:px-16 lg:py-12 xl:col-span-6 border"
                     >
                         <div className="max-w-xl lg:max-w-3xl">
-                            <a className="block text-sky-600" href="#">
+                            {/* <a className="block text-sky-600" href="#">
                                 <span className="sr-only">Home</span>
                                 <svg
                                     className="h-8 sm:h-10"
@@ -24,15 +25,13 @@ const EventFormPage = () => {
                                     fill="currentColor"
                                     />
                                 </svg>
-                            </a>
+                            </a> */}
 
                             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
                             Welcome to Tangapp
                             </h1>
 
-                            <p className="mt-4 leading-relaxed text-gray-500">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-                            quibusdam aperiam voluptatum.
+                            <p className="mt-4 leading-relaxed text-gray-500"> MAKE EVENT HERE!! {`>:(`}
                             </p>
 
                             <FormEvent></FormEvent>
@@ -41,39 +40,8 @@ const EventFormPage = () => {
 
                     </main>
 
-                    <div className="flow-root justify-center px-6 py-6 sm:px-12 lg:col-span-6 lg:px-8 lg:py-6 xl:col-span-6 border divide-y-2">
-                        <h1 className="text-2xl m-6">Detail Preview</h1>
-                        <dl className="-my-3 divide-y divide-gray-100 text-sm">
-                            <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                                <dt className="font-medium text-gray-900">Name Event</dt>
-                                <dd className="text-gray-700 sm:col-span-2">Muncak</dd>
-                            </div>
+                    <DetailPreview></DetailPreview>
 
-                            <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                                <dt className="font-medium text-gray-900">Orgenizer</dt>
-                                <dd className="text-gray-700 sm:col-span-2">Mr. Tuktuk</dd>
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                                <dt className="font-medium text-gray-900">Date</dt>
-                                <dd className="text-gray-700 sm:col-span-2">09-08-2024</dd>
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                                <dt className="font-medium text-gray-900">Cost</dt>
-                                <dd className="text-gray-700 sm:col-span-2">$1,000,000+</dd>
-                            </div>
-
-                            <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                                <dt className="font-medium text-gray-900">Bio</dt>
-                                <dd className="text-gray-700 sm:col-span-2">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo
-                                    doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam
-                                    aspernatur neque molestiae labore aliquam soluta architecto?
-                                </dd>
-                            </div>
-                        </dl>
-                    </div>
                 </div>
             </section>
         </>
