@@ -1,6 +1,6 @@
 import FormEvent from "../components/Fragments/FormEvent"
 import DetailPreview from "../components/Fragments/DetailPreview"
-const EventFormPage = () => {
+const EventFormPage = ({addEvent}) => {
     return (
         <>
             <section className="bg-white">
@@ -34,7 +34,7 @@ const EventFormPage = () => {
                             <p className="mt-4 leading-relaxed text-gray-500"> MAKE EVENT HERE!! {`>:(`}
                             </p>
 
-                            <FormEvent></FormEvent>
+                            <FormEvent addEvent={addEvent}/>
                         
                         </div>
 
