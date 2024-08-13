@@ -37,6 +37,7 @@ import eyeView from '../assets/svg/eye.svg'
 
 
 const BillingPage = ({ events })=> {
+    
     // const [event, setEvent] = useState ([
     //     {
     //         id: 1,

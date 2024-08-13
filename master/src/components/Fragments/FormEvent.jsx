@@ -4,6 +4,8 @@ import Button from "../Elements/Button"
 import { useState } from "react"
 
 const FormEvent = ({ addEvent }) => {
+
+  // ==========  Sebelum Perubahan  ==========
     const [event, setEvent] = useState({
       name: '',
       totalCost: '',
@@ -12,10 +14,11 @@ const FormEvent = ({ addEvent }) => {
       eventOrganizer: '',
       description: ''
     })
+    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setEvent({ ...event, [name]: value });
+        setEvent({ ...event, [name]: value});
       };
 
     const handleSubmit = (e) => {
@@ -30,6 +33,19 @@ const FormEvent = ({ addEvent }) => {
           description: ''
         })
     }
+
+    // ==========   Sesudah Perubahan  ============
+
+    // const [eventName, setEventName] = useState('');
+    // const [eventDate, setEventDate] = useState('');
+
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   const newEvent = { name: eventName, date: eventDate };
+    //   addEvent(newEvent);
+    //   setEventName('');
+    //   setEventDate('');
+    // };
 
     return (
         <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-6 gap-6">

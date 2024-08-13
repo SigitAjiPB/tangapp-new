@@ -22,7 +22,8 @@ function App() {
   const [events, setEvents] = useState([]);
 
   const addEvent = (event) => {
-    setEvents([...events, { ...event, id: events.length + 1, participants: event.participants.split(', ') }]);
+    setEvents([...events, event]);
+    // { ...event, id: events.length + 1, participants: event.participants.split(', ') } ini untuk yang atas kalo terjadi keslahan ffffff
   }
   return (
     <>
