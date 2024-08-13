@@ -3,15 +3,20 @@ import Button from "../Elements/Button";
 
 const FormLogin =  () => {
   const handleLogin = (e) => {
+    const email = e.target.Email.value
+    const password = e.target.Password.value
+
     e.preventDefault()
-    localStorage.setItem('email', e.target.email.value)
-    localStorage.setItem('password', e.target.password.value)
+    localStorage.setItem('email', email)
+    localStorage.setItem('password', password)
+
 
     window.location.href = "/"
   }
   return (
     <form onSubmit={handleLogin}>
       <InputForm 
+
       htmlFor='Email'
       label='Email' 
       type='email' 
@@ -19,6 +24,7 @@ const FormLogin =  () => {
       name='Email'
       labelStyle='block text-slate-700 text-sm font-bold mb-2'
       inputStyle='text-sm rounded border w-full text-slate-700 placeholder: opacity-50 p-2 mb-2'
+      
       placeholder='example@gmail.com'/>
       <InputForm 
       htmlFor='Password'
