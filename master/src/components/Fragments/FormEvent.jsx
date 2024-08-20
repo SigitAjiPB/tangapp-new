@@ -8,9 +8,9 @@ const FormEvent = () => {
 
     const [formData, setFormData] = useState({
         id: new Date().toISOString(),
-        name: '',
+        eventName: '',
         totalCost: '',
-        participants: '',
+        participants: [],
         date: '',
         eventOrganizer: '',
         description: ''
@@ -26,16 +26,14 @@ const FormEvent = () => {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        setInputValue('')
-        console.log(inputValue)
         const savedData = JSON.parse(localStorage.getItem('events')) || [];
-        savedData.push([formData]);
+        savedData.push(formData);
         localStorage.setItem('events', JSON.stringify(savedData));
         setFormData({
           id: '',
-          name: '',
+          eventName: '',
           totalCost: '',
-          participants: '',
+          participants: [],
           date: '',
           eventOrganizer: '',
           description: ''
@@ -51,7 +49,7 @@ const FormEvent = () => {
             label='Event Name' 
             type='text' 
             placeholder='Event Name' 
-            name='name'
+            name='eventName'
             htmlFor='EventName'
             labelStyle="block text-sm font-medium text-gray-700"
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
@@ -75,8 +73,8 @@ const FormEvent = () => {
             label='Event Orgenizer' 
             type='text' 
             placeholder='Event Orgenigger' 
-            name='eventOrgenizer'
-            htmlFor='EventOrgenizer'
+            name='eventOrganizer'
+            htmlFor='EventOrganizer'
             labelStyle="block text-sm font-medium text-gray-700"
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
 
@@ -94,7 +92,6 @@ const FormEvent = () => {
             
             <TextareaForm
             
-
             wrapp='col-span-12 sm:col-span-6'
             label='Event Bio'
             htmlFor='EventBio'

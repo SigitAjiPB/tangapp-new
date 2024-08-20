@@ -9,9 +9,8 @@ import EventFormPage from "./Pages/eventform"
 function Dashboard() {
   return (
     <>
-      <HomePage>
-        <Outlet/>
-      </HomePage>
+      <HomePage/>
+      <Outlet/>
     </>
   )
 }

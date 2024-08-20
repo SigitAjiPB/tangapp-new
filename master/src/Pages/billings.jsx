@@ -35,7 +35,7 @@ const BillingPage = ()=> {
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">No</th>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Date of Event</th>
-                    <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Event Orgenizer</th>
+                    <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Event Organizer</th>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Event Cost</th>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Participants</th>
                     <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Details</th>
@@ -47,11 +47,11 @@ const BillingPage = ()=> {
 
                         <tr key={index} className=" text-center odd:bg-sky-50">
                             <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 flex justify-center items-center">{index+1}</td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.name}</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.eventName}</td>
                             <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.date}</td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.eventOrgenizer}</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.eventOrganizer}</td>
                             <td className="whitespace-nowrap px-4 py-2 text-gray-700">Rp. {" "} {event.totalCost !== undefined && event.totalCost !== null ? event.totalCost.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }) : 'N/A'}</td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.participants}</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.participants !== undefined && event.totalCost !== null ? event.participants.length : 'N/A'}</td>
                             <td className="whitespace-nowrap px-4 py-2 ">
                                 <a
                                     href="#"
