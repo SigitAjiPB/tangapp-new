@@ -18,6 +18,7 @@ const FormEvent = () => {
     
       const handleChange = (e) => {
         const { name, value } = e.target;
+
         setFormData((prevData) => ({
           ...prevData,
           [name]: value
@@ -26,6 +27,7 @@ const FormEvent = () => {
     
       const handleSubmit = (e) => {
         e.preventDefault();
+        
         const savedData = JSON.parse(localStorage.getItem('events')) || [];
         savedData.push(formData);
         localStorage.setItem('events', JSON.stringify(savedData));

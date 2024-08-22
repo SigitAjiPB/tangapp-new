@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react"
 import Button from "../components/Elements/Button"
 import { Link, Outlet } from "react-router-dom"
+import { getUsername } from "../services/auth.service"
 
 const HomePage = () => {
-    const email = localStorage.getItem('email')
+    const [username, setUsername] = useState['']
+
+
+    useEffect(() => {
+        setUsername(getUsername(token))
+    },[])
+
 
     const handleLogin = () => {
         window.location.href= "/login"
@@ -352,9 +360,9 @@ const HomePage = () => {
 
                     <div>
                         <p className="text-xs">
-                        <strong className="block font-medium">Eric Frusciante</strong>
+                        <strong className="block font-medium">{username}</strong>
 
-                        <span> {email} </span>
+                        <span> {username} </span>
                         </p>
                     </div>
                     </a>

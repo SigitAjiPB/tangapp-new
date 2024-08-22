@@ -1,38 +1,55 @@
 import InputForm from "../Elements/Input/index";
 import Button from "../Elements/Button";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import { login } from "../../services/auth.service";
 const FormLogin =  () => {
+  const [loginFailed, setLoginFailed] = useState('')
   
   const handleLogin = (e) => {
-    const email = e.target.Email.value
+
+    const username = e.target.username.value
     const password = e.target.Password.value
 
     e.preventDefault()
-    localStorage.setItem('email', email)
-    localStorage.setItem('password', password)
-
-
+    // localStorage.setItem('email', email)
+    // localStorage.setItem('password', password)
     window.location.href = "/"
+    const data = {
+      username: username,
+      password: password
+    }
+
+    login(data, (status, res) => {
+      if(status) {
+        localStorage.setItem('token', res)
+      } else {
+        setLoginFailed(res.response.data)
+        console.log(res.response.data);
+        
+      }
+    })
+
   }
 
-  const emailRef = useRef(null);
+  const usernameRef = useRef(null);
 
   useEffect(() => {
-    if (emailRef.current) {
-      emailRef.current.focus();
+    if (usernameRef.current) {
+      usernameRef.current.focus();
     }
   }, []);
 
 
   return (
     <form onSubmit={handleLogin}>
+      {loginFailed && <p className="text-red-500">{loginFailed}</p>}
       <InputForm
-      ref = {emailRef}
-      htmlFor='Email'
-      label='Email' 
-      type='email' 
-      id='Email'
-      name='Email'
+      ref = {usernameRef}
+      htmlFor='username'
+      label='Username' 
+      type='text' 
+      id='username'
+      name='username'
       labelStyle='block text-slate-700 text-sm font-bold mb-2'
       inputStyle='text-sm rounded border w-full text-slate-700 placeholder: opacity-50 p-2 mb-2'
       placeholder='example@gmail.com'/>
