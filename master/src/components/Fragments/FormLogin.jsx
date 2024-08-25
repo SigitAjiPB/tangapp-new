@@ -19,12 +19,11 @@ const FormLogin =  () => {
       password: password
     }
 
-    login(data, (status, res) => {
+    login(data, (status, res) => {  
       if(status) {
         localStorage.setItem('token', res)
       } else {
         setLoginFailed(res.response.data)
-        console.log(res.response.data);
         
       }
     })
@@ -46,8 +45,8 @@ const FormLogin =  () => {
       <InputForm
       ref = {usernameRef}
       htmlFor='username'
-      label='Username' 
-      type='text' 
+      label='username' 
+      type='text'  
       id='username'
       name='username'
       labelStyle='block text-slate-700 text-sm font-bold mb-2'

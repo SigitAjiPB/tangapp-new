@@ -4,12 +4,17 @@ import { Link, Outlet } from "react-router-dom"
 import { getUsername } from "../services/auth.service"
 
 const HomePage = () => {
-    const [username, setUsername] = useState['']
+    const [username, setUsername] = useState('')
+    
+    useEffect(()=> {
+        const token = localStorage.getItem('token')
+        if (token) {
+            setUsername(getUsername(token))
+        }  else {
+            window.location.href = '/login '
+        } 
+    }, [])
 
-
-    useEffect(() => {
-        setUsername(getUsername(token))
-    },[])
 
 
     const handleLogin = () => {
@@ -17,8 +22,7 @@ const HomePage = () => {
     }
 
     const handleLogout = ()=> {
-        localStorage.removeItem('email')
-        localStorage.removeItem('password')
+        localStorage.removeItem('token')
         window.location.href = '/login'
     }
     return (
