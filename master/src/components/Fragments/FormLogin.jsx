@@ -13,12 +13,11 @@ const FormLogin =  () => {
     e.preventDefault()
     // localStorage.setItem('email', email)
     // localStorage.setItem('password', password)
-    window.location.href = "/"
     const data = {
       username: username,
       password: password
     }
-
+    
     login(data, (status, res) => {  
       if(status) {
         localStorage.setItem('token', res)
@@ -26,6 +25,7 @@ const FormLogin =  () => {
         setLoginFailed(res.response.data)
         
       }
+      window.location.href = "/"
     })
 
   }
