@@ -1,21 +1,10 @@
 import { useEffect, useState } from "react"
 import Button from "../components/Elements/Button"
 import { Link, Outlet } from "react-router-dom"
-import { getUsername } from "../services/auth.service"
+import { useLogin } from "../hooks/useLogin"
 
 const HomePage = () => {
-    const [username, setUsername] = useState('')
-    
-    useEffect(()=> {
-        const token = localStorage.getItem('token')
-        if (token) {
-            setUsername(getUsername(token))
-        }  else {
-            window.location.href = '/login '
-        } 
-    }, [])
-
-
+    const username = useLogin()
 
     const handleLogin = () => {
         window.location.href= "/login"
