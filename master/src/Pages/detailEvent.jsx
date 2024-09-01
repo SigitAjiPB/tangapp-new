@@ -9,11 +9,43 @@ const DetailEventPage = () => {
       const eventData = JSON.parse(localStorage.getItem('events')) || [];
       setDetailEvent(eventData);
   }, [])
-  console.log(detailEvent)
+
   return (
     <div>
       {Object.keys(detailEvent).length > 0 && (
-        <div>detail: {id}</div>
+        <div>
+            <div>detail: {id}</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Event Name</th>
+                  <th>Event Date</th>
+                  <th>Event Organizer</th>
+                  <th>Event Participant</th>
+                  <th>Event Cost</th>
+                  <th>Event Describtion</th>
+                </tr>
+              </thead>
+
+              <tbody>{
+              detailEvent.map((event, index) => {
+                const item = detailEvent.find ((item) => item.id === id)
+                return (
+                  <tr key={event.id}>
+                    <td>{index+1}</td>
+                    <td>{item.eventName}</td>
+                    <td>{item.date}</td>
+                    {/* <td>{detailEvent.organizer}</td>
+                    <td>{detailEvent.cost}</td> 
+                    <td>{detailEvent.describtion}</td> */}
+                  </tr>
+                )
+              })}
+
+              </tbody>
+            </table>
+        </div>
       )}
     </div>
   )

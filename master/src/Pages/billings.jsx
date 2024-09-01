@@ -19,8 +19,8 @@ const BillingPage = ()=> {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-      const savedData = JSON.parse(localStorage.getItem('events')) || [];
-      setData(savedData);
+      const eventData = JSON.parse(localStorage.getItem('events')) || [];
+      setData(eventData);
     }, []);
 
     return(
