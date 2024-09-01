@@ -1,5 +1,6 @@
 import eyeView from '../assets/svg/eye.svg'
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // const events = [
 //     {
 //         id: 1,
@@ -20,7 +21,6 @@ const BillingPage = ()=> {
     useEffect(() => {
       const savedData = JSON.parse(localStorage.getItem('events')) || [];
       setData(savedData);
-      console.log(data)
     }, []);
 
     return(
@@ -53,13 +53,13 @@ const BillingPage = ()=> {
                             <td className="whitespace-nowrap px-4 py-2 text-gray-700">Rp. {" "} {event.totalCost !== undefined && event.totalCost !== null ? event.totalCost.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }) : 'N/A'}</td>
                             <td className="whitespace-nowrap px-4 py-2 text-gray-700">{event.participants !== undefined && event.totalCost !== null ? event.participants.length : 'N/A'}</td>
                             <td className="whitespace-nowrap px-4 py-2 ">
-                                <a
-                                    href="#"
+                                <Link
+                                    to = {`/detail/${event.id}`}
                                     className="flex min-w-min gap-2 justify-center items-center rounded  bg-sky-400 py-2 text-xs font-medium text-white hover:bg-sky-500"
                                 >
                                     <p className='hidden lg:inline-block'>View</p>
                                     <img src={eyeView} alt="EyeView" className='h-3 text-center'  />
-                                </a>
+                                </Link>
                             </td>
                         </tr>
                         ))}
