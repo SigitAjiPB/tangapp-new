@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 const DetailEventPage = () => {
   let {id} = useParams()
   const [detailEvent, setDetailEvent] = useState({})
-
   useEffect(() => {
       const eventData = JSON.parse(localStorage.getItem('events')) || [];
       setDetailEvent(eventData);
@@ -12,7 +11,9 @@ const DetailEventPage = () => {
 
   return (
     <div>
-      {Object.keys(detailEvent).length > 0 && (
+      {
+        
+      Object.keys(detailEvent).length > 0 && (
         <div>
             <div>detail: {id}</div>
             <table>
@@ -28,17 +29,15 @@ const DetailEventPage = () => {
                 </tr>
               </thead>
 
-              <tbody>{
-              detailEvent.map((event, index) => {
+              <tbody>
+                {detailEvent.map((event, index) => {
                 const item = detailEvent.find ((item) => item.id === id)
                 return (
                   <tr key={event.id}>
                     <td>{index+1}</td>
                     <td>{item.eventName}</td>
                     <td>{item.date}</td>
-                    {/* <td>{detailEvent.organizer}</td>
-                    <td>{detailEvent.cost}</td> 
-                    <td>{detailEvent.describtion}</td> */}
+                    
                   </tr>
                 )
               })}

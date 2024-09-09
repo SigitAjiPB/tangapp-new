@@ -27,19 +27,25 @@ const FormEvent = () => {
     
       const handleSubmit = (e) => {
         e.preventDefault();
+        const test = formData.eventName
+        if(test === '') {
+          console.log('Please fill in the name field');
+        } else {
+
+          const savedData = JSON.parse(localStorage.getItem('events')) || [];
+          savedData.push(formData);
+          localStorage.setItem('events', JSON.stringify(savedData));
+          setFormData({
+            id: '',
+            eventName: '',
+            totalCost: '',
+            participants: [],
+            date: '',
+            eventOrganizer: '',
+            description: ''
+          });
+        }
         
-        const savedData = JSON.parse(localStorage.getItem('events')) || [];
-        savedData.push(formData);
-        localStorage.setItem('events', JSON.stringify(savedData));
-        setFormData({
-          id: '',
-          eventName: '',
-          totalCost: '',
-          participants: [],
-          date: '',
-          eventOrganizer: '',
-          description: ''
-        });
       };
 
     return (
