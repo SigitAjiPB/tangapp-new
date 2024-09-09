@@ -1,12 +1,13 @@
-import {configureStore, creatAction, creatReducer} from "@reduxjs/toolkit"
-// const {configureStore,creatAction, creatReducer} = toolkit
+// import {configureStore, creatAction, creatReducer} from "@reduxjs/toolkit"
+import toolkit from "@reduxjs/toolkit"
+const {configureStore, createAction, createReducer} = toolkit
 
 
-const addToCart = creatAction('ADD_TO_CART')
+const addToCart = createAction('ADD_TO_CART')
 const initialState = {
     cart: []
 }
-const cartReducer = creatReducer([], (builder) =>{
+const cartReducer = createReducer([], (builder) =>{
     builder.addCase(addToCart, (state, action) => {
         state.push(action.payload)
     })
@@ -17,6 +18,7 @@ const store = configureStore({
         cart: cartReducer
     }
 })
+console.log('oncreat store: ', store.getState());
 
 store.subscribe(() => {
     console.log("Store Change: ", store.getState());
