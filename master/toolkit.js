@@ -1,6 +1,8 @@
 // import {configureStore, creatAction, creatReducer} from "@reduxjs/toolkit"
-import toolkit from "@reduxjs/toolkit"
-const {configureStore, createAction, createReducer} = toolkit
+// import toolkit from "@reduxjs/toolkit"
+// const {configureStore, createAction, createReducer} = toolkit
+
+import { configureStore, createAction, createReducer } from '@reduxjs/toolkit';
 
 
 const addToCart = createAction('ADD_TO_CART')
