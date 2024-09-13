@@ -30,18 +30,24 @@ const DetailEventPage = () => {
               </thead>
 
               <tbody>
-                {detailEvent.map((event, index) => {
-                const item = detailEvent.find ((item) => item.id === id)
-                return (
-                  <tr key={event.id}>
-                    <td>{index+1}</td>
-                    <td>{item.eventName}</td>
-                    <td>{item.date}</td>
-                    
-                  </tr>
-                )
-              })}
-
+                {(() => {
+                  const item = detailEvent.find((item) => item.id === id);
+                  if (item) {
+                    return (
+                      <tr key={item.id}>
+                        <td>1</td>
+                        <td>{item.eventName}</td>
+                        <td>{item.date}</td>
+                      </tr>
+                    );
+                  } else {
+                    return (
+                      <tr>
+                        <td colSpan="3">No data found</td>
+                      </tr>
+                    );
+                  }
+                })()}
               </tbody>
             </table>
         </div>
