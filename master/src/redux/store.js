@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import billingReducer from '../features/counter/counterSlice';
+import eventReducer from '../redux/slices/eventSlice';
 
 const store = configureStore({
   reducer: {
-    billing: billingReducer,
+    event: eventReducer,
   },
 });
 

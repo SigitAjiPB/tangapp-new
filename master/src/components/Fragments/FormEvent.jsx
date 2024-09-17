@@ -1,12 +1,17 @@
 import InputForm from "../Elements/Input"
 import TextareaForm from "../Elements/Textarea"
 import Button from "../Elements/Button"
+import { useDispatch, useSelector } from 'react-redux';
+import { addEvent } from '../../redux/slices/eventSlice';
 
 import React, { useState } from 'react';
 
 const FormEvent = () => {
 
-    const [formData, setFormData] = useState({
+  const dispatch = useDispatch()
+  const events = useSelector((state) => state.event.events)
+
+    const [eventData, setEventData] = useState({
         id: new Date().toISOString(),
         eventName: '',
         totalCost: '',
@@ -19,39 +24,53 @@ const FormEvent = () => {
       const handleChange = (e) => {
         const { name, value } = e.target;
 
-        setFormData((prevData) => ({
+        setEventData((prevData) => ({
           ...prevData,
           [name]: value
         }));
       };
-    
+
       const handleSubmit = (e) => {
         e.preventDefault();
-        const test = formData.eventName
-        if(test === '') {
-          console.log('Please fill in the name field');
-        } else {
-
-          const savedData = JSON.parse(localStorage.getItem('events')) || [];
-          savedData.push(formData);
-          localStorage.setItem('events', JSON.stringify(savedData));
-          setFormData({
-            id: '',
-            eventName: '',
-            totalCost: '',
-            participants: [],
-            date: '',
-            eventOrganizer: '',
-            description: ''
-          });
-        }
-        
+        dispatch(addEvent(eventData));
+        setEventData({
+          id: new Date().toISOString(),
+          eventName: '',
+          totalCost: '',
+          participants: [],
+          date: '',
+          eventOrganizer: '',
+          description: '',
+        });
       };
+    
+      // const handleSubmit = (e) => {
+      //   e.preventDefault();
+      //   const test = formData.eventName
+      //   if(test === '') {
+      //     console.log('Please fill in the name field');
+      //   } else {
+
+      //     const savedData = JSON.parse(localStorage.getItem('events')) || [];
+      //     savedData.push(formData);
+      //     localStorage.setItem('events', JSON.stringify(savedData));
+      //     setFormData({
+      //       id: '',
+      //       eventName: '',
+      //       totalCost: '',
+      //       participants: [],
+      //       date: '',
+      //       eventOrganizer: '',
+      //       description: ''
+      //     });
+      //   }
+        
+      // };
 
     return (
         <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-6 gap-6">
             <InputForm 
-            value={formData.name} onChange={handleChange}
+            value={eventData.name} onChange={handleChange}
             
             wrapp='col-span-6 sm:col-span-3'
             label='Event Name' 
@@ -63,7 +82,7 @@ const FormEvent = () => {
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
             
             <InputForm 
-            value={formData.date} onChange={handleChange}
+            value={eventData.date} onChange={handleChange}
             
             wrapp='col-span-6 sm:col-span-3'
             label='Date of Event' 
@@ -75,7 +94,7 @@ const FormEvent = () => {
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
             
             <InputForm 
-            value={formData.eventOrganizer} onChange={handleChange}
+            value={eventData.eventOrganizer} onChange={handleChange}
 
             wrapp='col-span-6 sm:col-span-4'
             label='Event Orgenizer' 
@@ -87,7 +106,7 @@ const FormEvent = () => {
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
 
             <InputForm
-            value={formData.totalCost} onChange={handleChange}
+            value={eventData.totalCost} onChange={handleChange}
 
             wrapp='col-span-6 sm:col-span-2'
             label='Event Cost' 
