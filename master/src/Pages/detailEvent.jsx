@@ -5,7 +5,7 @@ const DetailEventPage = () => {
   let {id} = useParams()
   const [detailEvent, setDetailEvent] = useState({})
   useEffect(() => {
-      const eventData = JSON.parse(localStorage.getItem('events')) || [];
+      const eventData = JSON.parse(localStorage.getItem('event')) || [];
       setDetailEvent(eventData);
   }, [])
 

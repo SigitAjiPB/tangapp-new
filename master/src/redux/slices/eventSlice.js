@@ -27,7 +27,7 @@ const eventSlice = createSlice({
     reducers: {
         addEvent: (state, action ) => {
             state.events.push(action.payload)
-            localStorage.setItem('event', JSON.stringify(state.events))
+            localStorage.setItem('event', JSON.stringify(state.events) || [])
         }
     }
 })
