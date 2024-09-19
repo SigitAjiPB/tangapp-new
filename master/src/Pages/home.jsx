@@ -18,7 +18,7 @@ const HomePage = () => {
         <div className="relative flex">
 
 {/* Side Menu */}
-            <div className=" sticky top-0 h-screen  peer hidden md:flex w-16 md:flex-col md:justify-between border-e bg-white max-w-min">
+            <div className=" sticky top-0 h-screen peer hidden md:flex w-16 md:flex-col md:justify-between border-e bg-white max-w-min">
                 <div className="sticky top-0">
 
                     <div className="border-t border-gray-100">

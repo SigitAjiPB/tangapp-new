@@ -1,10 +1,18 @@
 
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DarkMode } from "../../context/DarkMode";
+
+
 const AuthLayout = (props) => {
+
+  const {isDarkMode, setIsDarkMode} = useContext(DarkMode)
+  {console.log(isDarkMode);}
+  
 
     const {children, type, tittle} = props;
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen w-full">
       <div className="w-full max-w-xs">
         <h1 className="text-3xl font-bold mb-2 text-sky-400">{tittle}</h1>
         <p className="font-medium text-slate-500 mb-8">Welcome, pls Enter your Details</p>
@@ -18,7 +26,7 @@ const AuthLayout = (props) => {
 const NavAuth = ({type}) => {
   if (type === 'login') {
     return (
-      <p className="text-sm mt-5 text-center">
+      <p className="text-sm mt-5 text-center text-slate-500">
         Don't have an account?{' '}
         <Link to='/register' className="font-bold text-sky-400">Register</Link>
       </p>
