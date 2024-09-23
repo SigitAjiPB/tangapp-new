@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 const FormEvent = () => {
 
   const dispatch = useDispatch()
-  const events = useSelector((state) => state.event.events)
+  // const events = useSelector((state) => state.event.events)
 
     const [eventData, setEventData] = useState({
         id: new Date().toISOString(),
@@ -21,14 +21,14 @@ const FormEvent = () => {
         description: ''
       });
     
-      const handleChange = (e) => {
-        const { name, value } = e.target;
+    const handleChange = (e) => {
+      const { name, value } = e.target;
 
-        setEventData((prevData) => ({
-          ...prevData,
-          [name]: value
-        }));
-      };
+      setEventData((prevData) => ({
+        ...prevData,
+        [name]: value
+      }));
+    };
 
       const handleSubmit = (e) => {
         e.preventDefault();
@@ -42,17 +42,18 @@ const FormEvent = () => {
           eventOrganizer: '',
           description: '',
         });
+        console.log('sudah di reset?')
       };
     
       // const handleSubmit = (e) => {
       //   e.preventDefault();
-      //   const test = formData.eventName
+      //   const test = eventData.eventName
       //   if(test === '') {
       //     console.log('Please fill in the name field');
       //   } else {
 
       //     const savedData = JSON.parse(localStorage.getItem('events')) || [];
-      //     savedData.push(formData);
+      //     savedData.push(eventData);
       //     localStorage.setItem('events', JSON.stringify(savedData));
       //     setFormData({
       //       id: '',
@@ -64,13 +65,12 @@ const FormEvent = () => {
       //       description: ''
       //     });
       //   }
-        
       // };
 
     return (
         <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-6 gap-6">
             <InputForm 
-            value={eventData.name} onChange={handleChange}
+            value={eventData.eventName} onChange={handleChange}
             
             wrapp='col-span-6 sm:col-span-3'
             label='Event Name' 

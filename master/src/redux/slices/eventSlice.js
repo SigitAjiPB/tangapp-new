@@ -34,3 +34,25 @@ const eventSlice = createSlice({
 
 export const {addEvent} = eventSlice.actions
 export default eventSlice.reducer
+
+      // const handleSubmit = (e) => {
+      //   e.preventDefault();
+      //   const test = eventData.eventName
+      //   if(test === '') {
+      //     console.log('Please fill in the name field');
+      //   } else {
+
+      //     const savedData = JSON.parse(localStorage.getItem('events')) || [];
+      //     savedData.push(eventData);
+      //     localStorage.setItem('events', JSON.stringify(savedData));
+      //     setFormData({
+      //       id: '',
+      //       eventName: '',
+      //       totalCost: '',
+      //       participants: [],
+      //       date: '',
+      //       eventOrganizer: '',
+      //       description: ''
+      //     });
+      //   }
+      // };
