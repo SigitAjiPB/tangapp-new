@@ -1,16 +1,14 @@
 import InputForm from "../Elements/Input"
 import TextareaForm from "../Elements/Textarea"
 import Button from "../Elements/Button"
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addEvent } from '../../redux/slices/eventSlice';
-
 import React, { useState } from 'react';
 
 const FormEvent = () => {
 
   const dispatch = useDispatch()
   // const events = useSelector((state) => state.event.events)
-
     const [eventData, setEventData] = useState({
         id: new Date().toISOString(),
         eventName: '',
@@ -20,57 +18,36 @@ const FormEvent = () => {
         eventOrganizer: '',
         description: ''
       });
-    
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-
-      setEventData((prevData) => ({
-        ...prevData,
-        [name]: value
-      }));
-    };
+      
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+  
+        setEventData((prevData) => ({
+          ...prevData,
+          [name]: value
+        }));
+      };
 
       const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(addEvent(eventData));
+        e.preventDefault() 
+        dispatch(addEvent(eventData))
+        console.log(eventData)
         setEventData({
-          id: new Date().toISOString(),
           eventName: '',
           totalCost: '',
-          participants: [],
+          participants: '',
           date: '',
           eventOrganizer: '',
           description: '',
         });
-        console.log('sudah di reset?')
       };
     
-      // const handleSubmit = (e) => {
-      //   e.preventDefault();
-      //   const test = eventData.eventName
-      //   if(test === '') {
-      //     console.log('Please fill in the name field');
-      //   } else {
-
-      //     const savedData = JSON.parse(localStorage.getItem('events')) || [];
-      //     savedData.push(eventData);
-      //     localStorage.setItem('events', JSON.stringify(savedData));
-      //     setFormData({
-      //       id: '',
-      //       eventName: '',
-      //       totalCost: '',
-      //       participants: [],
-      //       date: '',
-      //       eventOrganizer: '',
-      //       description: ''
-      //     });
-      //   }
-      // };
 
     return (
         <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-6 gap-6">
             <InputForm 
-            value={eventData.eventName} onChange={handleChange}
+            value={eventData.eventName} 
+            onChange={handleChange}
             
             wrapp='col-span-6 sm:col-span-3'
             label='Event Name' 
@@ -129,7 +106,7 @@ const FormEvent = () => {
 
             <Button 
             type='submit'  
-            variant='col-span-4 bg-sky-400 w-full text-white font-bold sm:row-start-3 sm:col-span-2'>
+            variant='col-span-4 bg-sky-400 w-full text-white font-bold sm:row-start-3 sm:col-span-2 hover:bg-sky-500 hover:shadow-md'>
                 Submit
             </Button>
 

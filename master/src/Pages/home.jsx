@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Button from "../components/Elements/Button"
 import { Link, Outlet } from "react-router-dom"
 import { useLogin } from "../hooks/useLogin"
+import Navbar from "../components/Fragments/Navbar"
 
 const HomePage = () => {
     const username = useLogin()
@@ -17,8 +18,9 @@ const HomePage = () => {
     return (
         <div className="relative flex">
 
+                <Navbar></Navbar>
 {/* Side Menu */}
-            <div className=" sticky top-0 h-screen peer hidden md:flex w-16 md:flex-col md:justify-between border-e bg-white max-w-min">
+            {/* <div className=" sticky top-0 h-screen peer hidden md:flex  md:flex-col w-16 md:justify-between border-e bg-sky-500 max-w-min border-r-0">
                 <div className="sticky top-0">
 
                     <div className="border-t border-gray-100">
@@ -205,11 +207,11 @@ const HomePage = () => {
                     </button>
 
                 </div>
-            </div>
+            </div> */}
 {/* End Side Menu */}
 
 {/* Hover Side Menu */}
-            <div className=" sticky top-0 h-screen peer-hover:flex hover:flex hidden flex-col justify-between border-e bg-white min-w-max">
+            {/* <div className=" sticky top-0 h-screen peer-hover:flex hover:flex hidden flex-col justify-between border-e bg-sky-500 min-w-max border-l-0">
                 <div className="px-4 py-6">
                     <ul className=" space-y-1">
                     <li>
@@ -360,12 +362,12 @@ const HomePage = () => {
                     </div>
                     </a>
                 </div>
-            </div> 
+            </div>  */}
 {/* End Hover Side Menu */}
 
 {/* Hero */}
-            <div className="flex flex-col w-full ">
-                <header className="bg-white w-full h-max sticky top-0 shadow-md">
+            <div className="flex flex-col w-full">
+                <header className="bg-white w-full h-max sticky top-0 shadow-md py-1">
                     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
                         <div className="flex h-16 items-center justify-between">
                         <div className="md:flex md:items-center md:gap-12">
@@ -382,7 +384,7 @@ const HomePage = () => {
 
                         <div className="hidden md:block">
                             <nav aria-label="Global">
-                            <ul className="flex items-center gap-6 text-sm">
+                            <ul className="flex items-center gap-6 text-sm lg:text-lg px-10">
                                 <li>
                                 <a className="text-sky-500 transition hover:text-sky-500/75" href="#"> About </a>
                                 </li>
