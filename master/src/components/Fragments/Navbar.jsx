@@ -16,7 +16,7 @@ const Navbar = () => {
 }
   return (
     <nav className=" sticky top-0 h-screen  bg-sky-500 hidden md:block min-w-max group ">
-        <div className='flex justify-center items-center space-x-4 py-5 bg-sky-600 group-hover:pl-4 group-hover:py-4 group-hover:pr-14 '>
+        <Link to='/user' className='flex justify-center items-center space-x-4 py-5 bg-sky-600 group-hover:pl-4 group-hover:py-4 group-hover:pr-14 '>
             <div className='bg-slate-50 rounded-full h-8 w-8'>
             </div>
 
@@ -25,7 +25,7 @@ const Navbar = () => {
                 <span>country</span>
             </div>
 
-        </div>
+        </Link>
         <ul className=" inline-block">
 
             <div className=''>
