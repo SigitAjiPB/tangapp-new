@@ -416,11 +416,11 @@ const HomePage = () => {
                             <div onSubmit={handleLogin} className="sm:flex sm:gap-4">
                                 <form onSubmit={handleLogin}>
 
-                                <Button variant="bg-sky-600 text-white w-full" onClick={handleLogin} type="submit">Login</Button>
+                                <Button variant="bg-sky-600 text-white w-full h-10 px-6 font-semibold rounded-lg" onClick={handleLogin} type="submit">Login</Button>
                                 </form>
 
                                 <div className="hidden sm:flex">
-                                    <Button variant="text-sky-600 bg-slate-100 w-full " type="submit">Register</Button>
+                                    <Button variant="text-sky-600 bg-slate-100 w-full h-10 px-6 font-semibold rounded-lg" type="submit">Register</Button>
                                 </div>
                             </div>
 
