@@ -3,6 +3,7 @@ import Button from "../components/Elements/Button"
 import { Link, Outlet } from "react-router-dom"
 import { useLogin } from "../hooks/useLogin"
 import Navbar from "../components/Fragments/Navbar"
+import darkMode from "../assets/svg/darkMode.svg"
 
 const HomePage = () => {
     const username = useLogin()
@@ -412,20 +413,11 @@ const HomePage = () => {
                             </nav>
                         </div>
 
-                        <div className="flex items-center gap-4">
-                            <div onSubmit={handleLogin} className="sm:flex sm:gap-4">
-                                <form onSubmit={handleLogin}>
+                        <div className=" ">
 
-                                <Button variant="bg-sky-600 text-white w-full h-10 px-6 font-semibold rounded-lg" onClick={handleLogin} type="submit">Login</Button>
-                                </form>
-
-                                <div className="hidden sm:flex">
-                                    <Button variant="text-sky-600 bg-slate-100 w-full h-10 px-6 font-semibold rounded-lg" type="submit">Register</Button>
-                                </div>
-                            </div>
 
                             <div className="block md:hidden">
-                                <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                                <button className="rounded bg-gradient-to-r from-sky-400 to-sky-600 p-2 text-white transition hover:text-gray-600/75">
                                     <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5"
@@ -437,6 +429,18 @@ const HomePage = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                                     </svg>
                                 </button>
+                            </div>
+
+                            <div className="hidden md:flex divide-x">
+
+                                <div className="size-8 bg-gradient-to-b from-red-600 from-50% to-white to-50% rounded-full border border-gray-300 mx-3 "></div>
+
+                                <div>
+                                    <div className="size-8 bg-gradient-to-r from-sky-400 to-sky-600 rounded-full p-1 flex items-center justify-center mx-3">
+                                        <img src={darkMode} alt=""  className=" size-8   rounded-full  flex items-center justify-center"/>
+                                    </div>
+                                </div>    
+
                             </div>
                         </div>
                         </div>

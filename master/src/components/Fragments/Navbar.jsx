@@ -6,7 +6,6 @@ import eventSvg from '../../assets/svg/events.svg'
 import settingSvg from '../../assets/svg/setting.svg'
 import logoutSvg from '../../assets/svg/logout.svg'
 import Button from '../Elements/Button';
-import { useEffect, useState } from "react"
 
 const Navbar = () => {
 
@@ -15,8 +14,8 @@ const Navbar = () => {
     window.location.href = '/login'
 }
   return (
-    <nav className=" sticky top-0 h-screen  bg-sky-500 hidden md:block min-w-max group ">
-        <Link to='/user' className='flex justify-center items-center space-x-4 py-5 bg-sky-600 group-hover:pl-4 group-hover:py-4 group-hover:pr-14 '>
+    <nav className=" sticky top-0 h-screen  bg-gradient-to-r from-sky-400 to-sky-600 hidden md:block min-w-max group ">
+        <Link to='/user' className='flex justify-center items-center space-x-4 py-5 bg-gradient-to-r from-sky-500 to-sky-700 group-hover:pl-4 group-hover:py-4 group-hover:pr-14 '>
             <div className='bg-slate-50 rounded-full h-8 w-8'>
             </div>
 
