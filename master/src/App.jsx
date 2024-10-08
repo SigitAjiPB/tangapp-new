@@ -7,6 +7,7 @@ import BillingPage from "./Pages/billings"
 import EventFormPage from "./Pages/eventform"
 import ProfilePage from "./Pages/profile"
 import DetailEventPage from "./Pages/detailEvent"
+import SettingPage from "./Pages/settings"
 
 function Dashboard() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Dashboard/>}>
           <Route path="billings" element={<BillingPage/>} />
           <Route path="eventform" element={<EventFormPage />} />
+          <Route path="settings" element={<SettingPage />} />
           <Route path="/detail/:id" element={<DetailEventPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
