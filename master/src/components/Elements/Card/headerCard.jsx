@@ -6,7 +6,7 @@ const HeaderCard = () => {
         <div className="sm:flex sm:justify-between sm:gap-4">
             <div>
                 <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
-                    Bandung Trip
+                    Card Header
                 </h3>
 
                 <p className="mt-1 text-xs font-medium text-gray-600">Sigit</p>

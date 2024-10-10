@@ -5,17 +5,18 @@ import HeaderCard from './headerCard';
 import BodyCard from './bodyCard';
 import FooterCard from './footerCard';
 
-const Card = (props) => {
+const Card = (props, data, key) => {
 
-    const { children, to, className} = props
+    const { children, to, className } = props
     return (
         <div>
             <Link 
+            key={key}
             to={to}  
             className={className}>
                 {children}
                 <HeaderCard></HeaderCard>
-                <BodyCard></BodyCard>
+                <BodyCard>{data}</BodyCard>
                 <FooterCard></FooterCard>
             </Link>
         </div>

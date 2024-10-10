@@ -13,7 +13,7 @@ const FormEvent = () => {
         id: new Date().toISOString(),
         eventName: '',
         totalCost: '',
-        participants: [],
+        participants: {},
         date: '',
         eventOrganizer: '',
         description: ''
