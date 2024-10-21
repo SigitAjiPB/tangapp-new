@@ -2,14 +2,13 @@ import InputForm from "../Elements/Input"
 import TextareaForm from "../Elements/Textarea"
 import Button from "../Elements/Button"
 import { useDispatch } from 'react-redux';
-// import { addEvent } from '../../redux/slices/eventSlice';
-import React, { useState, useRef } from 'react';
-import { setEventData  } from "../../redux/slices/eventSlice";
+import { addEvent } from '../../redux/slices/eventSlice';
+import React, { useState } from 'react';
+// import { setEventData  } from "../../redux/slices/eventSlice";
 
 const FormEvent = () => {
 
   const dispatch = useDispatch()
-  const formRef = useRef(null);
 
   // const events = useSelector((state) => state.event.events)
     const [eventData, setEventDataState] = useState({
@@ -35,10 +34,9 @@ const FormEvent = () => {
 
       const handleSubmit = (e) => {
         e.preventDefault() 
-        dispatch(setEventData(eventData))
-        // formRef.current.reset();
+        dispatch(addEvent(eventData))
         console.log(eventData)
-        setEventData({
+        addEvent({
           eventName: '',
           totalCost: '',
           participants: '',
@@ -46,7 +44,6 @@ const FormEvent = () => {
           eventOrganizer: '',
           description: '',
         });
-        
       };
     
 
