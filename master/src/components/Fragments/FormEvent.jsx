@@ -110,7 +110,7 @@ const FormEvent = () => {
 
             <Button 
             type='submit'  
-            variant='col-span-4 bg-gradient-to-r from-sky-400 to-sky-600 w-full text-white font-bold sm:row-start-3 sm:col-span-2 hover:bg-sky-500 hover:shadow-md h-10 px-6 font-semibold rounded-lg'>
+            variant='col-span-4 bg-gradient-to-r from-sky-400 to-sky-600 w-full text-white font-bold sm:col-span-2 hover:bg-sky-500 hover:shadow-md h-10 px-6 font-semibold rounded-lg'>
                 Submit
             </Button>
 

@@ -46,7 +46,7 @@ const Navbar = () => {
                     </Link>
             </div>
 
-            <Button onClick={handleLogout} variant='hover:bg-red-400 w-full p-5 text-white space-x-2 flex items-center absolute bottom-0' >
+            <Button onClick={handleLogout} variant='hover:bg-gradient-to-r hover:from-red-400 hover:to-red-600 w-full p-5 text-white space-x-2 flex items-center absolute bottom-0' >
                 <img className='h-10 ' src={logoutSvg} alt="" />
                 <span className='hidden group-hover:block pr-8'>Logout</span>
             </Button>

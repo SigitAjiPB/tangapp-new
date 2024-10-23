@@ -2,7 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    events: JSON.parse(localStorage.getItem('event')) || [],
+    events: JSON.parse(localStorage.getItem('event')) || [], //pokonya initu check dulu kalo ada data di localstoragenya saat di render pertamakali, pake data nya. Biar ngga di replace sama data baru yang akan di masukan 
 }
 
 const eventSlice = createSlice({

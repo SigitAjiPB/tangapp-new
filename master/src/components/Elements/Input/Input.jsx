@@ -4,6 +4,7 @@ const Input = forwardRef((props, ref) => {
   const {type, placeholder,id, inputStyle, value, onChange, name} = props;
   return (
     <input
+      required
       type={type}
       className={inputStyle}
       placeholder={placeholder}
