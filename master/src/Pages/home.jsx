@@ -1,21 +1,8 @@
-import { useEffect, useState } from "react"
-import Button from "../components/Elements/Button"
-import { Link, Outlet } from "react-router-dom"
-import { useLogin } from "../hooks/useLogin"
+import { Outlet } from "react-router-dom"
 import Navbar from "../components/Fragments/Navbar"
 import darkMode from "../assets/svg/darkMode.svg"
 
 const HomePage = () => {
-    const username = useLogin()
-
-    const handleLogin = () => {
-        window.location.href= "/login"
-    }
-
-    const handleLogout = ()=> {
-        localStorage.removeItem('token')
-        window.location.href = '/login'
-    }
     return (
         <div className="relative flex">
 
