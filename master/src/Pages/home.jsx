@@ -354,7 +354,7 @@ const HomePage = () => {
 {/* End Hover Side Menu */}
 
 {/* Hero */}
-            <div className="flex flex-col w-full">
+            <div className=" flex flex-col border w-full">
                 <header className="bg-white w-full h-max sticky top-0 shadow-md py-1 z-10">
                     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
                         <div className="flex h-16 items-center justify-between">
