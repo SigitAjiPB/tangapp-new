@@ -5,19 +5,37 @@ import HeaderCard from './headerCard';
 import BodyCard from './bodyCard';
 import FooterCard from './footerCard';
 
-const Card = (props, data, key) => {
+const Card = (props, key) => {
 
-    const { children, to, className } = props
+    const { children, to, className, eventname, eventdate, eventcost, eventorganizer, eventbio } = props
     return (
         <div>
             <Link 
+            eventname = {eventname}
+            eventdate = {eventdate}
+            eventcost = {eventcost}
+            eventorganizer = {eventorganizer}
+            eventbio = {eventbio}
+
             key={key}
             to={to}  
             className={className}>
                 {children}
-                <HeaderCard></HeaderCard>
-                <BodyCard>{data}</BodyCard>
-                <FooterCard></FooterCard>
+                <HeaderCard 
+                eventname = {eventname}
+                eventorganizer = {eventorganizer}
+                ></HeaderCard>
+
+
+                <BodyCard
+                eventbio = {eventbio}
+                ></BodyCard>
+
+
+                <FooterCard
+                eventdate = {eventdate}
+                eventcost = {eventcost}
+                ></FooterCard>
             </Link>
         </div>
     )

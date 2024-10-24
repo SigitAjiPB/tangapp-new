@@ -420,10 +420,10 @@ const HomePage = () => {
 
                             <div className="hidden md:flex divide-x">
 
-                                <div className="size-8 bg-gradient-to-b from-red-600 from-50% to-white to-50% rounded-full border border-gray-300 mx-3 "></div>
+                                <div className="cursor-pointer hover:shadow-md size-8 bg-gradient-to-b from-red-600 from-50% to-white to-50% rounded-full border border-gray-300 mx-3 "></div>
 
                                 <div>
-                                    <div className="size-8 bg-gradient-to-r from-sky-400 to-sky-600 rounded-full p-1 flex items-center justify-center mx-3">
+                                    <div className="cursor-pointer hover:shadow-md size-8 bg-gradient-to-r from-sky-400 to-sky-600 rounded-full p-1 flex items-center justify-center mx-3">
                                         <img src={darkMode} alt=""  className=" size-8   rounded-full  flex items-center justify-center"/>
                                     </div>
                                 </div>    

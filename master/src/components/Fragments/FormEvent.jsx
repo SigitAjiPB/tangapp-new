@@ -44,6 +44,8 @@ const FormEvent = () => {
           eventOrganizer: '',
           description: '',
         });
+
+        console.log(eventData.description)
       };
     
 
@@ -97,16 +99,29 @@ const FormEvent = () => {
             htmlFor='EventCost'
             labelStyle="block text-sm font-medium text-gray-700"
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
+
+            <InputForm
+            value={eventData.descripton} onChange={handleChange}
+
+            wrapp='col-span-6'
+            label='description' 
+            type='text' 
+            placeholder='Event Description' 
+            name='description'
+            htmlFor='Description'
+            labelStyle="block text-sm font-medium text-gray-700"
+            inputStyle="mt-1  p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
             
-            <TextareaForm
-            
+            {/* <TextareaForm
+            value={eventData.description} onChange={handleChange}
+            name = 'desctiption'
             wrapp='col-span-12 sm:col-span-6'
             label='Event Bio'
             htmlFor='EventBio'
             placeholder='Event Bio'
             labelStyle="block text-sm font-medium text-gray-700"
             textareaStyle='mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none'
-            />
+            /> */}
 
             <Button 
             type='submit'  
