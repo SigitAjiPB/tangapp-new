@@ -1,5 +1,5 @@
 import InputForm from "../Elements/Input"
-import TextareaForm from "../Elements/Textarea"
+// import TextareaForm from "../Elements/Textarea"
 import Button from "../Elements/Button"
 import { useDispatch } from 'react-redux';
 import { addEvent } from '../../redux/slices/eventSlice';
@@ -51,6 +51,7 @@ const FormEvent = () => {
 
     return (
         <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-6 gap-6">
+            
             <InputForm 
             value={eventData.eventName} 
             onChange={handleChange}
@@ -94,7 +95,7 @@ const FormEvent = () => {
             wrapp='col-span-6 sm:col-span-2'
             label='Event Cost' 
             type='number' 
-            placeholder='Event Cost' 
+            placeholder='Rp.' 
             name='totalCost'
             htmlFor='EventCost'
             labelStyle="block text-sm font-medium text-gray-700"
@@ -103,7 +104,7 @@ const FormEvent = () => {
             <InputForm
             value={eventData.descripton} onChange={handleChange}
 
-            wrapp='col-span-6'
+            wrapp='col-span-12 sm:col-span-6'
             label='description' 
             type='text' 
             placeholder='Event Description' 

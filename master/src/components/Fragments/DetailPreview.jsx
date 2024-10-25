@@ -1,6 +1,6 @@
 const DetailPreview = () => {
     return (
-        <div className="flow-root justify-center px-6 py-6 sm:px-12 lg:col-span-6 lg:px-8 lg:py-6 xl:col-span-6 border divide-y-2">
+        <div className="flow-root justify-center px-6 py-6 sm:px-12 lg:col-span-4 lg:px-8 lg:py-6 xl:col-span-6 border divide-y-2">
         <h1 className="text-2xl m-6">Detail Preview</h1>
         <dl className="-my-3 divide-y divide-gray-100 text-sm">
             <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
