@@ -5,11 +5,29 @@ import billingsSvg from '../../assets/svg/billings.svg'
 import eventSvg from '../../assets/svg/events.svg'
 import settingSvg from '../../assets/svg/setting.svg'
 import logoutSvg from '../../assets/svg/logout.svg'
+import leftSvg from '../../assets/svg/left.svg'
 import Button from '../Elements/Button';
 import { useLogin } from '../../hooks/useLogin';
 import { useIatLogin } from '../../hooks/useIatLogin';
+import{ useState } from 'react';
+
+
+
 
 const Navbar = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const handleMouseEnter = () => {
+      setIsExpanded(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setIsExpanded(true); // Tetap expanded saat mouse keluar
+    };
+  
+    const handleClose = () => {
+      setIsExpanded(false);
+    };
 
     const handleUserPage= ()=> {
         login(data, (status, res) => {  
@@ -33,14 +51,21 @@ const Navbar = () => {
 
 
   return (
-    <nav className=" sticky top-0 h-screen  bg-gradient-to-r from-sky-400 to-sky-600 hidden md:block min-w-max group ">
-        <Link onClick={handleUserPage} to='/user' className='flex justify-center items-center space-x-4 py-5 bg-gradient-to-r from-sky-500 to-sky-700 group-hover:pl-4 group-hover:py-4 group-hover:pr-14 '>
-            <div className='bg-slate-50 rounded-full h-8 w-8'>
+    <nav className={`z-20  sidebar-transition sticky top-0  h-screen  bg-gradient-to-r from-sky-400 to-sky-600 hidden md:block  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
+            
+        <Link onClick={handleUserPage} to='/user' className='relative flex justify-center items-center  py-6 bg-gradient-to-r from-sky-500 to-sky-700  '>
+            <div className='bg-slate-50 rounded-full h-10 w-10'>
             </div>
 
-            <div className='text-white text-sm hidden group-hover:flex group-hover:items-center group-hover:justify-center group-hover:flex-col' >   
-                <p>{username}</p>
-                <span>{userIat}</span>
+            <div  className='text-white text-sm flex items-center justify-center flex-col' >   
+                {isExpanded && <span className='ml-5'>{`${username}`}</span>}
+                {isExpanded && <span className='ml-5'>{`${userIat}`}</span>}
+            </div >
+
+            <div onClick={handleClose} className={`shadow-md absolute -right-6 bg-gradient-to-r from-sky-400 to-sky-600 h-12 w-12 rounded-full p-4 flex items-center justify-center ${isExpanded ? 'absolute' : 'hidden'}`}>
+                {<img src={leftSvg} alt="close" />}
             </div>
 
         </Link>
@@ -49,25 +74,28 @@ const Navbar = () => {
             <div className=''>
                     <Link to="/" className="text-white flex space-x-3 p-6 hover:bg-sky-400  items-center" >
                         <img className='h-8' src={dashboardSvg} alt="" />
-                        <span className='hidden group-hover:block pr-8'>Dashboard</span>
+                        {isExpanded && <span className="pr-12 text-lg">Dashboard</span>}
                     </Link>
+
                     <Link to="/eventform" className="text-white flex items-center space-x-3 p-6 hover:bg-sky-400 " >
                         <img className='h-8' src={eventSvg} alt="" />
-                        <span className='hidden group-hover:block pr-8'>Event Form</span>
+                            {isExpanded && <span className="pr-8 text-lg">Event Form</span>}
                     </Link>
+
                     <Link to="/billings" className="text-white flex space-x-3 p-6 hover:bg-sky-400 items-center" >
                         <img className='h-8' src={billingsSvg} alt="" />
-                        <span className='hidden group-hover:block pr-8'>Billings</span>
+                            {isExpanded && <span className="pr-8 text-lg">Billings</span>}
                     </Link>
+
                     <Link to="/settings" className="text-white flex space-x-3 p-6 hover:bg-sky-400 items-center" >
                         <img className='h-8' src={settingSvg} alt="" />
-                        <span className='hidden group-hover:block pr-8'>Settings</span>
+                            {isExpanded && <span className="pr-8 text-lg">Settings</span>}
                     </Link>
             </div>
 
             <Button onClick={handleLogout} variant='hover:bg-gradient-to-r hover:from-red-400 hover:to-red-600 w-full p-5 text-white space-x-2 flex items-center absolute bottom-0' >
                 <img className='h-10 ' src={logoutSvg} alt="" />
-                <span className='hidden group-hover:block pr-8'>Logout</span>
+                {isExpanded && <span className="pr-8 text-lg">Logout</span>}
             </Button>
         </ul>
     </nav>
