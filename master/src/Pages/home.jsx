@@ -4,14 +4,14 @@ import darkMode from "../assets/svg/darkMode.svg"
 
 const HomePage = () => {
     return (
-        <div className="relative flex">
+        <div className="relative flex isolate">
 
                 <Navbar></Navbar>
 
 
 {/* Hero */}
-            <div className=" flex flex-col border w-full">
-                <header className="bg-white w-full h-max sticky top-0 shadow-md py-1 z-10">
+            <div className=" flex flex-col w-full">
+                <header className="bg-white w-full sticky top-0 shadow-md py-1 z-10">
                     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
                         <div className="flex h-20 items-center justify-between">
                         <div className="md:flex md:items-center md:gap-12">
@@ -29,7 +29,7 @@ const HomePage = () => {
                         <div className=" ">
 
 
-                            <div className="block md:hidden">
+                            <div className="block lg:hidden">
                                 <button className="rounded bg-gradient-to-r from-sky-400 to-sky-600 p-2 text-white transition hover:text-gray-600/75">
                                     <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const HomePage = () => {
                                 </button>
                             </div>
 
-                            <div className="hidden md:flex divide-x">
+                            <div className="hidden lg:flex divide-x">
 
                                 <div className="cursor-pointer hover:shadow-md size-8 bg-gradient-to-b from-red-600 from-50% to-white to-50% rounded-full border border-gray-300 mx-3 "></div>
 

@@ -29,18 +29,6 @@ const Navbar = () => {
       setIsExpanded(false);
     };
 
-    const handleUserPage= ()=> {
-        login(data, (status, res) => {  
-            if(status) {
-              localStorage.setItem('token', res)
-            } else {
-              setLoginFailed(res.response.data)
-              
-            }
-            window.location.href = "/user"
-          })
-    }
-
     const username = useLogin()
     const userIat = useIatLogin()
 
@@ -51,25 +39,29 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`z-20  sidebar-transition sticky top-0  h-screen  bg-gradient-to-r from-sky-400 to-sky-600 hidden md:block  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
+    <nav className={`z-20  sidebar-transition sticky top-0 h-screen bg-gradient-to-r from-sky-400 to-sky-600 hidden lg:flex lg:flex-col  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
-            
-        <Link onClick={handleUserPage} to='/user' className='relative flex justify-center items-center  py-6 bg-gradient-to-r from-sky-500 to-sky-700  '>
+
+        <div>
+          {isExpanded &&
+            <button onClick={handleClose} className={`z-50 top-5 shadow-md -right-6 bg-gradient-to-r from-sky-400 to-sky-600 h-12 w-12 rounded-full p-4 flex items-center justify-center ${isExpanded ? 'absolute' : 'hidden'}`}>
+                {<img src={leftSvg} alt="close" />}
+            </button>}
+        </div>
+
+        <Link  to='/user' className='flex justify-center items-center  py-6 bg-gradient-to-r from-sky-500 to-sky-700'>
             <div className='bg-slate-50 rounded-full h-10 w-10'>
             </div>
 
             <div  className='text-white text-sm flex items-center justify-center flex-col' >   
-                {isExpanded && <span className='ml-5'>{`${username}`}</span>}
-                {isExpanded && <span className='ml-5'>{`${userIat}`}</span>}
+                {isExpanded && <span className='ml-2'>{`${username}`}</span>}
+                {isExpanded && <span className='ml-2'>{`${userIat}`}</span>}
             </div >
-
-            <div onClick={handleClose} className={`shadow-md absolute -right-6 bg-gradient-to-r from-sky-400 to-sky-600 h-12 w-12 rounded-full p-4 flex items-center justify-center ${isExpanded ? 'absolute' : 'hidden'}`}>
-                {<img src={leftSvg} alt="close" />}
-            </div>
-
         </Link>
-        <ul className=" inline-block">
+
+
+        <ul className="flex flex-col justify-between h-full">
 
             <div className=''>
                     <Link to="/" className="text-white flex space-x-3 p-6 hover:bg-sky-400  items-center" >
@@ -93,7 +85,7 @@ const Navbar = () => {
                     </Link>
             </div>
 
-            <Button onClick={handleLogout} variant='hover:bg-gradient-to-r hover:from-red-400 hover:to-red-600 w-full p-5 text-white space-x-2 flex items-center absolute bottom-0' >
+            <Button onClick={handleLogout} variant='hover:bg-gradient-to-r hover:from-red-400 hover:to-red-600 w-full p-5 text-white space-x-2 flex items-center' >
                 <img className='h-10 ' src={logoutSvg} alt="" />
                 {isExpanded && <span className="pr-8 text-lg">Logout</span>}
             </Button>
