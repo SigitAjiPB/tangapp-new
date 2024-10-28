@@ -14,6 +14,10 @@ const FooterCard = (props) => {
                 <div className="text-sm font-medium text-gray-600">Cost</div>
                 <div className="text-xs text-gray-500">{eventcost}</div>
             </div>
+            <div className="flex flex-col-reverse">
+                <div className="text-sm font-medium text-gray-600">Participant</div>
+                <div className="text-xs text-gray-500">3 Participants</div>
+            </div>
         </div>
     )
 }

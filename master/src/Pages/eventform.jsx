@@ -1,5 +1,6 @@
 import FormEvent from "../components/Fragments/FormEvent"
-import DetailPreview from "../components/Fragments/DetailPreview"
+// import DetailPreview from "../components/Fragments/DetailPreview"
+import UserSearch from "../components/Fragments/DetailPreview"
 const EventFormPage = ({addEvent}) => {
     return (
         <>
@@ -19,7 +20,7 @@ const EventFormPage = ({addEvent}) => {
 
                     </main>
 
-                    <DetailPreview></DetailPreview>
+                    <UserSearch></UserSearch>
 
                 </div>
             </section>

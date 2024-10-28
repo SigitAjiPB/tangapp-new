@@ -39,13 +39,13 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`z-20  sidebar-transition sticky top-0 h-screen bg-gradient-to-r from-sky-400 to-sky-600 hidden lg:flex lg:flex-col  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
+    <nav className={`z-20 sidebar-transition sticky top-0 h-screen bg-gradient-to-r from-sky-400 to-sky-600 hidden lg:flex lg:flex-col  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
 
         <div>
           {isExpanded &&
-            <button onClick={handleClose} className={`z-50 top-5 shadow-md -right-6 bg-gradient-to-r from-sky-400 to-sky-600 h-12 w-12 rounded-full p-4 flex items-center justify-center ${isExpanded ? 'absolute' : 'hidden'}`}>
+            <button onClick={handleClose} className={`z-50 top-5 shadow-md hover:shadow-lg -right-6 bg-gradient-to-r from-sky-400 to-sky-600 h-12 w-12 rounded-full p-4 flex items-center justify-center ${isExpanded ? 'absolute' : 'hidden'}`}>
                 {<img src={leftSvg} alt="close" />}
             </button>}
         </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
         </Link>
 
 
-        <ul className="flex flex-col justify-between h-full">
+        <ul className="flex flex-col justify-between h-full overflow-y-auto">
 
             <div className=''>
                     <Link to="/" className="text-white flex space-x-3 p-6 hover:bg-sky-400  items-center" >
