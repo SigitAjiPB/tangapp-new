@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <DarkModeContextProvider>
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
-              <App />
+            <App />
           </BrowserRouter>
         </QueryClientProvider>
       </DarkModeContextProvider>

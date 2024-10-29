@@ -22,7 +22,7 @@ const Navbar = () => {
     };
   
     const handleMouseLeave = () => {
-      setIsExpanded(true); // Tetap expanded saat mouse keluar
+      setIsExpanded(true);
     };
   
     const handleClose = () => {
@@ -39,7 +39,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className={`z-20 sidebar-transition sticky top-0 h-screen bg-gradient-to-r from-sky-400 to-sky-600 hidden lg:flex lg:flex-col  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
+    <nav className={`z-20 sticky top-0 h-screen bg-gradient-to-r from-sky-400 to-sky-600 hidden lg:flex lg:flex-col  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
 

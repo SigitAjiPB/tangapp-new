@@ -4,9 +4,8 @@ import darkMode from "../assets/svg/darkMode.svg"
 
 const HomePage = () => {
     return (
-        <div className="relative flex isolate">
-
-                <Navbar></Navbar>
+        <div className="flex">
+            <Navbar></Navbar>
 
 
 {/* Hero */}

@@ -12,11 +12,11 @@ import UserPage from "./Pages/user"
 
 function Dashboard() {
   return (
-    <>
+    <div className="wrapper">
       <HomePage>
         <Outlet/>
       </HomePage>
-    </>
+    </div>
   )
 }
 
