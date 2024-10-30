@@ -51,7 +51,8 @@ const Navbar = () => {
         </div>
 
         <Link  to='/user' className='flex justify-center items-center  py-6 bg-gradient-to-r from-sky-500 to-sky-700'>
-            <div className='bg-slate-50 rounded-full h-10 w-10'>
+            <div className='bg-slate-200 text-slate-50 text-2xl rounded-full h-10 w-10 flex justify-center items-center'>
+              <p>J</p>
             </div>
 
             <div  className='text-white text-sm flex items-center justify-center flex-col' >   
