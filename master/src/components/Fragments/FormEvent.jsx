@@ -1,16 +1,12 @@
 import InputForm from "../Elements/Input"
-// import TextareaForm from "../Elements/Textarea"
 import Button from "../Elements/Button"
 import { useDispatch } from 'react-redux';
 import { addEvent } from '../../redux/slices/eventSlice';
 import React, { useState } from 'react';
-// import { setEventData  } from "../../redux/slices/eventSlice";
 
 const FormEvent = () => {
 
   const dispatch = useDispatch()
-
-  // const events = useSelector((state) => state.event.events)
     const [eventData, setEventDataState] = useState({
         id: new Date().toISOString(),
         eventName: '',
@@ -114,8 +110,8 @@ const FormEvent = () => {
 
             <Button 
             type='submit'  
-            variant='col-span-4 bg-gradient-to-r from-sky-400 to-sky-600 w-full text-white font-bold sm:col-span-2 hover:bg-sky-500 hover:shadow-md h-10 px-6 font-semibold rounded-lg'>
-                Submit
+            variant='col-span-4 bg-gradient-to-r from-sky-400 to-sky-600 w-full text-white font-bold sm:col-span-2 hover:bg-sky-500 hover:shadow-md h-10 font-semibold rounded-lg'>
+                Save
             </Button>
 
             

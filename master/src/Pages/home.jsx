@@ -28,7 +28,7 @@ const HomePage = () => {
                         <div className=" ">
 
 
-                            <div className="block lg:hidden">
+                            <div className="block md:hidden">
                                 <button className="rounded bg-gradient-to-r from-sky-400 to-sky-600 p-2 text-white transition hover:text-gray-600/75">
                                     <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ const HomePage = () => {
                                 </button>
                             </div>
 
-                            <div className="hidden lg:flex divide-x">
+                            <div className="hidden md:flex divide-x">
 
                                 <div className="cursor-pointer hover:shadow-md size-8 bg-gradient-to-b from-red-600 from-50% to-white to-50% rounded-full border border-gray-300 mx-3 "></div>
 

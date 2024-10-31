@@ -9,6 +9,7 @@ import ProfilePage from "./Pages/profile"
 import DetailEventPage from "./Pages/detailEvent"
 import SettingPage from "./Pages/settings"
 import UserPage from "./Pages/user"
+// import CreateEventPage from "./Pages/createEvent"
 
 function Dashboard() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="settings" element={<SettingPage />} />
           <Route path="/detail/:id" element={<DetailEventPage />} />
           <Route path="/user" element={<UserPage />} />
+          {/* <Route path="/createEvent" element={<CreateEventPage />} /> */}
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
