@@ -7,7 +7,7 @@ const EventFormPage = ({addEvent}) => {
             <section className="bg-white">  
                 <div className="lg:grid lg:grid-cols-12">
                     <main
-                    className=" place-items-center grid-cols-6 bg-sky-50 justify-center py-8  lg:col-span-8 lg:py-12 xl:col-span-6 border"
+                    className=" place-items-center grid-cols-6 bg-sky-50 justify-center py-8 px-6 lg:col-span-8 lg:py-12 xl:col-span-6 border"
                     >
                         <div className="max-w-xl lg:max-w-3xl">
                             <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
