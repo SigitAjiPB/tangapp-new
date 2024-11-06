@@ -13,7 +13,7 @@ import UserPage from "./Pages/user"
 
 function Dashboard() {
   return (
-    <div className="wrapper">
+    <div className="wrapper ">
       <HomePage>
         <Outlet/>
       </HomePage>

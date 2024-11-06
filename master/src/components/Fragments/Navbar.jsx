@@ -38,8 +38,8 @@ const Navbar = () => {
     }
 
 
-  return (
-    <nav className={`z-20 sticky top-0 h-screen bg-gradient-to-r from-sky-400 to-sky-600 hidden md:flex md:flex-col  ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
+  return ( 
+    <nav className={`z-20 sticky top-0 h-screen bg-gradient-to-r from-sky-400 to-sky-600 hidden md:flex md:flex-col transition-all duration-500 ease-in-out ${isExpanded ? 'min-w-max' : 'min-w-max'}`} 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
 
@@ -67,7 +67,7 @@ const Navbar = () => {
             <div className=''>
                     <Link to="/" className="text-white flex space-x-3 p-6 hover:bg-sky-400  items-center" >
                         <img className='h-8' src={dashboardSvg} alt="" />
-                        {isExpanded && <span className="pr-12 text-lg">Dashboard</span>}
+                        {isExpanded && <span className="pr-8 text-lg">Dashboard</span>}
                     </Link>
 
                     <Link to="/eventform" className="text-white flex items-center space-x-3 p-6 hover:bg-sky-400 " >

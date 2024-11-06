@@ -6,12 +6,12 @@ import React, { useState } from 'react';
 
 const FormEvent = () => {
 
-  const dispatch = useDispatch()
-    const [eventData, setEventDataState] = useState({
+    const dispatch = useDispatch()
+    const [eventData, setEventData] = useState({
         id: new Date().toISOString(),
         eventName: '',
         totalCost: '',
-        participants: {},
+        participants: '',
         date: '',
         eventOrganizer: '',
         description: ''
@@ -20,7 +20,7 @@ const FormEvent = () => {
       const handleChange = (e) => {
         const { name, value } = e.target;
   
-        setEventDataState((prevData) => ({
+        setEventData((prevData) => ({
           ...prevData,
           [name]: value
         }));
@@ -31,7 +31,7 @@ const FormEvent = () => {
       const handleSubmit = (e) => {
         e.preventDefault() 
         dispatch(addEvent(eventData))
-        addEvent({
+        setEventData({
           eventName: '',
           totalCost: '',
           participants: '',
@@ -39,8 +39,6 @@ const FormEvent = () => {
           eventOrganizer: '',
           description: '',
         });
-
-        console.log(eventData.description)
       };
     
 
