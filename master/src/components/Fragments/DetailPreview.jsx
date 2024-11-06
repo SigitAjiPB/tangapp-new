@@ -27,7 +27,7 @@ const UserSearch = () => {
   console.log(users)
 
   return (
-    <div className="flow-root justify-center px-6 py-6 sm:px-12 lg:col-span-4 lg:px-8 lg:py-6 xl:col-span-6 border">
+    <div className="flow-root justify-center px-6 py-6 sm:px-12 lg:col-span-4 lg:px-8 lg:py-6 xl:col-span-6">
       <div className="mb-4">
         {selectedUsers.map(user => (
           <span key={user.id} className="inline-block bg-blue-200 text-blue-800 px-2 py-1 rounded m-1">
