@@ -89,8 +89,8 @@ const DynamicInput = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl mb-6">Dynamic User Input</h2>
+    <div className="container mx-auto col-span-2">
+      <h2 className="text-2xl mb-6">Add Participant</h2>
 
       {inputs.map((input, index) => (
         <div key={input.id} className="mb-4 relative">

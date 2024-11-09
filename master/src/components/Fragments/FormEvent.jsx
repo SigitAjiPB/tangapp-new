@@ -7,16 +7,20 @@ import React, { useState } from 'react';
 const FormEvent = () => {
 
     const dispatch = useDispatch()
+     
     const [eventData, setEventData] = useState({
-        id: new Date().toISOString(),
-        eventName: '',
-        totalCost: '',
-        participants: '',
-        date: '',
-        eventOrganizer: '',
-        description: ''
-      });
-      
+      id: new Date().toISOString(),
+      eventName: '',
+      totalCost: '',
+      participants: '',
+      date: '',
+      eventOrganizer: '',
+      description: ''
+    });
+    // udah ada state global sebelumnya yang isinya flag create atau update
+    // kalau state tersebut bernilai update maka jalankan fungsi untuk menarik data event tersebut
+    // setelah itu isi data tersebut ke state event yg diatas
+    
       const handleChange = (e) => {
         const { name, value } = e.target;
   
@@ -59,7 +63,7 @@ const FormEvent = () => {
             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none"/>
             
             <InputForm 
-            value={eventData.date} onChange={handleChange}
+            value={eventData.date} onChange={handleChange} 
             
             wrapp='col-span-6 sm:col-span-3'
             label='Date of Event' 

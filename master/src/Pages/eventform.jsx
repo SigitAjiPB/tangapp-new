@@ -9,7 +9,7 @@ const EventFormPage = ({addEvent}) => {
     return (
         <>
             <section className=" m-4 shadow-md rounded-md p-8 ">  
-                    <div className=""><span>Create Event</span></div>
+                    <div className="text-2xl"><span>Create Event</span></div>
                         <form className=" grid grid-cols-6 gap-4 p-4">
                             <InputForm
                                 wrapp='col-span-6 sm:col-span-2'
@@ -52,7 +52,9 @@ const EventFormPage = ({addEvent}) => {
                                 labelStyle = " block text-sm font-medium text-gray-700"
                                 placeholder='Describ your event here' 
                             ></TextareaForm>
-                            <DynamicInput></DynamicInput>
+                            <DynamicInput
+                                className="col-span-6"
+                            ></DynamicInput>
 
                             
                         </form>
