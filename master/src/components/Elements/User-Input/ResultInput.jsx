@@ -27,10 +27,11 @@ const DynamicInput = () => {
   // Menambahkan event listener untuk klik di luar input dan dropdown
   useEffect(() => {
     function handleClickOutside(event) {
-      inputRefs.current.forEach((inputRef, index) => {
+      inputRefs.current.forEach((inputRef, index) => {    
         if (
           inputRef &&
           !inputRef.contains(event.target) &&
+          dropdownRefs.current[index] &&
           !dropdownRefs.current[index].contains(event.target)
         ) {
           // Menyembunyikan dropdown jika klik di luar input dan dropdown
@@ -44,13 +45,13 @@ const DynamicInput = () => {
         }
       });
     }
-
-    // Menambahkan event listener
-    document.addEventListener("click", handleClickOutside);
-
-    // Membersihkan event listener ketika komponen unmount
+  
+    // Menambahkan event listener untuk klik di luar
+    document.addEventListener('mousedown', handleClickOutside);
+  
+    // Membersihkan event listener saat komponen unmount
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [inputs]);
 
@@ -89,7 +90,7 @@ const DynamicInput = () => {
   };
 
   return (
-    <div className="container mx-auto col-span-2">
+    <div className="container mx-auto col-span-2 overflow-y-auto pb-10">
       <h2 className="text-2xl mb-6">Add Participant</h2>
 
       {inputs.map((input, index) => (
@@ -109,7 +110,7 @@ const DynamicInput = () => {
           {input.isDropdownOpen && (
             <div
               ref={(el) => dropdownRefs.current[index] = el}
-              className="absolute left-0 right-0 mt-1 bg-white border border-gray-300 shadow-lg rounded-md z-10"
+              className="absolute left-0 right-0 mt-1 bg-white border border-gray-300 shadow-lg rounded-md z-10  "
             >
               {users.filter(user => user.name.toLowerCase().includes(input.value.toLowerCase())).map(user => (
                 <div

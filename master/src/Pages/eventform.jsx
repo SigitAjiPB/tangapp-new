@@ -1,4 +1,4 @@
-
+import Invoice from "../components/Fragments/Invoice"
 import InputForm from "../components/Elements/Input"
 import TextareaForm from "../components/Elements/Textarea/index"
 import DynamicInput from "../components/Elements/User-Input/ResultInput"
@@ -55,6 +55,8 @@ const EventFormPage = ({addEvent}) => {
                             <DynamicInput
                                 className="col-span-6"
                             ></DynamicInput>
+
+                            <Invoice></Invoice>
 
                             
                         </form>
