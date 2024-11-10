@@ -125,15 +125,29 @@ const DynamicInput = () => {
 
 
           </div>
-          { index > 0 && (
+
+          {
+            index === 0 && (
+              <span
+              className="px-4 py-2 bg-transparant text-transparent cursor-default select-none"
+            >
+              X
+            </span>
+            )
+          }
+
+
+          {index > 0 && (
             <button
               onClick={() => handleDeleteInput(input.id)}
-              className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 "
+              className="px-4 py-2 bg-red-500 text-white rounded-lg "
             >
-              Delete
+              X
             </button>
-
           )}
+
+
+
 
           {/* Tombol Add/Delete */}
         </div>

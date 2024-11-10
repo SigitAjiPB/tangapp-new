@@ -52,6 +52,7 @@ const FormLogin =  () => {
       labelStyle='block text-slate-700 text-sm font-bold mb-2'
       inputStyle='text-sm rounded border w-full text-slate-700 placeholder: opacity-50 p-2 mb-2'
       placeholder='example@gmail.com'/>
+      
       <InputForm 
       htmlFor='Password'
       label='Password' 
