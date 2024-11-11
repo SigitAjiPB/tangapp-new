@@ -85,7 +85,7 @@ const Navbar = () => {
                             {isExpanded && <span className="pr-8 text-lg">Settings</span>}
                     </Link>
             </div>
-
+            
             <Button onClick={handleLogout} variant='hover:bg-gradient-to-r hover:from-red-400 hover:to-red-600 w-full p-5 text-white space-x-2 flex items-center' >
                 <img className='h-10 ' src={logoutSvg} alt="" />
                 {isExpanded && <span className="pr-8 text-lg">Logout</span>}

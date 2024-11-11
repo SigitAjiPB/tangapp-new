@@ -26,7 +26,7 @@ const ItemTable = () => {
     setItems([...items, { id: items.length + 1, name: '', qty: 0, price: 0, total: 0 }]);
   };
 
-  // fungsi delet input - tapi berdasarkan index yang ada
+  // fungsi delete input - tapi berdasarkan index yang ada
   const deleteItem = (index) => {
     const newItems = items.filter((item, i) => i !== index);
     setItems(newItems);
@@ -38,21 +38,22 @@ const ItemTable = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 col-span-4">
-      <table className="min-w-full bg-white border border-gray-300">
+    <div className="container col-span-6 lg:col-span-4">
+      <h1 className='text-2xl inline text-slate-800'>Invoice</h1>
+      <table className="min-w-full mt-6 bg-white drop-shadow-md rounded-md border-gray-300">
         <thead>
-          <tr>
-            <th className="py-2 px-4 border-b">Nama Barang</th>
-            <th className="py-2 px-4 border-b">Qty</th>
-            <th className="py-2 px-4 border-b">Harga Satuan</th>
-            <th className="py-2 px-4 border-b">Total</th>
-            <th className="py-2 px-4 border-b">Aksi</th>
+          <tr className=' text-slate-800'>
+            <th className="py-4 px-4 border-b">Nama Barang</th>
+            <th className="py-4 px-4 border-b">Qty</th>
+            <th className="py-4 px-4 border-b">Harga Satuan</th>
+            <th className="py-4 px-4 border-b">Total</th>
+            <th className="py-4 px-4 border-b"></th>
           </tr>
         </thead>
         <tbody>
           {items.map((item, index) => (
             <tr key={item.id}>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 pr-2 pl-4 border-b">
                 <input
                   type="text"
                   value={item.name}
@@ -60,15 +61,16 @@ const ItemTable = () => {
                   className="w-full p-2 border border-gray-300 rounded"
                 />
               </td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-2 border-b">
                 <input
                   type="number"
                   value={item.qty}
                   onChange={(e) => handleInputChange(index, 'qty', parseFloat(e.target.value))}
                   className="w-full p-2 border border-gray-300 rounded"
+                  
                 />
               </td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-2 border-b">
                 <input
                   type="number"
                   value={item.price}
@@ -76,7 +78,7 @@ const ItemTable = () => {
                   className="w-full p-2 border border-gray-300 rounded"
                 />
               </td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-2 border-b">
                 <input
                   type="number"
                   value={item.total}
@@ -87,7 +89,7 @@ const ItemTable = () => {
               <td className="py-2 px-4 border-b">
                 <button
                   onClick={() => deleteItem(index)}
-                  className="p-2 bg-red-500 text-white rounded"
+                  className="p-2 bg-gradient-to-r from-red-400 to-red-600 text-white rounded"
                 >
                   Hapus
                 </button>
@@ -98,9 +100,9 @@ const ItemTable = () => {
       </table>
       <button
         onClick={addItem}
-        className="mt-4 p-2 bg-blue-500 text-white rounded"
+        className="mt-4 p-2 bg-gradient-to-r from-sky-400 to-sky-600 text-white rounded"
       >
-        Tambah Item
+        Add Item
       </button>
       <div className="mt-4 p-2 bg-gray-100 border border-gray-300 rounded">
         <strong>Grand Total: </strong>Rp {calculateGrandTotal().toLocaleString('id-ID')}

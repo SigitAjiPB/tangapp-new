@@ -90,8 +90,8 @@ const DynamicInput = () => {
   };
 
   return (
-    <div className="container mx-auto col-span-2 overflow-y-auto pb-10">
-      <h2 className="text-2xl mb-6">Add Participant</h2>
+    <div className="container mx-auto col-span-6 lg:col-span-2 overflow-y-auto pb-10 mt-6 sm:mt-0">
+      <h2 className="text-2xl mb-6 text-slate-800">Add Participant</h2>
 
       {inputs.map((input, index) => (
         <div key={input.id} className="mb-4 relative flex gap-2">
@@ -141,7 +141,7 @@ const DynamicInput = () => {
           {index > 0 && (
             <button
               onClick={() => handleDeleteInput(input.id)}
-              className="px-4 py-2 bg-red-500 text-white rounded-lg "
+              className="px-4 py-2 bg-gradient-to-r from-red-400 to-red-600 text-white rounded-lg "
             >
               X
             </button>
@@ -156,7 +156,7 @@ const DynamicInput = () => {
           <div className="flex justify-between mt-2">
             <button
               onClick={handleAddInput}
-              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+              className="px-4 py-2 bg-gradient-to-r from-sky-400 to-sky-600 text-white rounded-md hover:bg-blue-600"
             >
               Add User
             </button>
