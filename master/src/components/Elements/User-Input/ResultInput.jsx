@@ -7,6 +7,7 @@ const DynamicInput = () => {
     value: "",
     isDropdownOpen: false,
     selectedUser: null,
+    isInputValued: false,
   }]);
 
   // Menyimpan referensi ke input dan dropdown
@@ -65,7 +66,7 @@ const DynamicInput = () => {
   // Handle user selection dari dropdown
   const handleSelectUser = (id, user) => {
     setInputs(inputs.map(input => 
-      input.id === id ? { ...input, value: user.name, isDropdownOpen: false, selectedUser: user } : input
+      input.id === id ? { ...input, value: user.name, isDropdownOpen: false, selectedUser: user,} : input
     ));
   };
 
@@ -77,11 +78,12 @@ const DynamicInput = () => {
   };
 
   // Menambahkan input baru
-  const handleAddInput = () => {
+  const handleAddInput = (e) => {
     setInputs([
       ...inputs,
       { id: Date.now(), value: "", isDropdownOpen: false, selectedUser: null }
     ]);
+    e.preventDefault()
   };
 
   // Menghapus input

@@ -9,7 +9,10 @@ const EventFormPage = ({addEvent}) => {
     return (
         <> 
             <section className=" shadow-md rounded-md m-4 p-8 border">  
-                    <div className="text-2xl text-slate-800 px-4 "><span>Create Event</span></div>
+                    <div className="text-2xl text-slate-800 px-4 flex w-full justify-between">
+                        <span>Create Event</span>
+                        <button className="px-4 py-2 bg-gradient-to-r from-sky-400 to-sky-600 text-white rounded">Submit</button>
+                    </div>
                     <form className=" grid grid-cols-6 gap-4 p-4">
                         <InputForm
                             wrapp='col-span-6 sm:col-span-2'

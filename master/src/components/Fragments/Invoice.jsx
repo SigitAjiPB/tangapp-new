@@ -22,8 +22,9 @@ const ItemTable = () => {
   };
 
   // fungsi menambahkan input biasa untuk menambahkan item berupa objek ke array items
-  const addItem = () => {
+  const addItem = (e) => {
     setItems([...items, { id: items.length + 1, name: '', qty: 0, price: 0, total: 0 }]);
+    e.preventDefault()
   };
 
   // fungsi delete input - tapi berdasarkan index yang ada
