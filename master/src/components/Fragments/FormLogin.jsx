@@ -1,69 +1,47 @@
-import InputForm from "../Elements/Input/index";
-import Button from "../Elements/Button";
-import { useRef, useEffect, useState } from "react";
-import { login } from "../../services/auth.service";
-const FormLogin =  () => {
+import { useState } from 'react'
+import { login } from '../../services/auth.service'
+
+const FormLogin = () => {
   const [loginFailed, setLoginFailed] = useState('')
-  
-  const handleLogin = (e) => {
 
-    const username = e.target.username.value
-    const password = e.target.Password.value
+  const handleGoogleLogin = () => {
+    const popup = window.open(
+      'http://localhost:8080/api/auth/google',
+      '_blank',
+      'width=500,height=600'
+    )
 
-    e.preventDefault()
-    // localStorage.setItem('email', email)
-    // localStorage.setItem('password', password)
-    const data = {
-      username: username,
-      password: password
-    }
-    
-    login(data, (status, res) => {  
-      if(status) {
-        localStorage.setItem('token', res)
+    // Listen for the message event to capture the token
+    const handleTokenMessage = (event) => {
+      // Ensure the message is from our origin
+      if (event.origin === window.location.origin && event.data.token) {
+        localStorage.setItem('token', event.data.token)
+        window.location.href = '/' // Redirect to home after successful login
       } else {
-        setLoginFailed(res.response.data)
-        
+        setLoginFailed('Login failed. Please try again.')
       }
-      window.location.href = "/"
-    })
+    }
 
+    window.addEventListener('message', handleTokenMessage)
+
+    // Clean up the event listener when the popup is closed
+    const checkPopupClosed = setInterval(() => {
+      if (!popup || popup.closed) {
+        clearInterval(checkPopupClosed)
+        window.removeEventListener('message', handleTokenMessage)
+      }
+    }, 500)
   }
 
-  const usernameRef = useRef(null);
-
-  useEffect(() => {
-    if (usernameRef.current) {
-      usernameRef.current.focus();
-    }
-  }, []);
-
-
   return (
-    <form onSubmit={handleLogin}>
-      {loginFailed && <p className="text-red-500">{loginFailed}</p>}
-      <InputForm
-      ref = {usernameRef}
-      htmlFor='username'
-      label='username' 
-      type='text'  
-      id='username'
-      name='username'
-      labelStyle='block text-slate-700 text-sm font-bold mb-2'
-      inputStyle='text-sm rounded border w-full text-slate-700 placeholder: opacity-50 p-2 mb-2'
-      placeholder='example@gmail.com'/>
-      
-      <InputForm 
-      htmlFor='Password'
-      label='Password' 
-      type='password' 
-      placeholder='***' 
-      name='Password'
-      labelStyle='block text-slate-700 text-sm font-bold mb-2'
-      inputStyle='text-sm rounded border w-full text-slate-700 placeholder: opacity-50 p-2  mb-6'/>
-      
-      <Button variant="bg-sky-400 w-full text-white font-bold h-10 px-6 font-semibold rounded-lg" type="submit">Login</Button>
-    </form>
+    <div className='login-container'>
+      {loginFailed && <p className='text-red-500'>{loginFailed}</p>}
+      <button
+        onClick={handleGoogleLogin}
+        className='bg-sky-400 w-full text-white font-bold h-10 px-6 font-semibold rounded-lg'>
+        Sign in with Google
+      </button>
+    </div>
   )
 }
 
