@@ -20,17 +20,20 @@
 // export default eventSlice.reducer
 
 
-import { createSlice } from '@reduxjs/toolkit'; 
+import { createSlice } from '@reduxjs/toolkit'
 
-const saveToLocalStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)); }; 
-const getFromLocalStorage = (key) => { const value = localStorage.getItem(key); return value ? JSON.parse(value) : []; };
+const saveToLocalStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
+const getFromLocalStorage = (key) => { const value = localStorage.getItem(key)
+    return value ? JSON.parse(value) : [] 
+}
 
-const initialState = getFromLocalStorage('event') || [];
+const initialState = getFromLocalStorage('event') || []
 const eventSlice = createSlice({ name: 'event', initialState, reducers: { addEvent: (state, action) => { 
-    const newState = [...state, action.payload]; 
-    saveToLocalStorage('event', newState); 
-    return newState; 
-}}}); 
+    const newState = [...state, action.payload]
+    saveToLocalStorage('event', newState)
+    return newState
+}}})
 
 
-export const { addEvent } = eventSlice.actions; export default eventSlice.reducer;
+export const { addEvent } = eventSlice.actions
+export default eventSlice.reducer
