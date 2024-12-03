@@ -38,43 +38,43 @@
 // export default BillingPage
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const BillingPage = () => {
-  const [events, setEvents] = useState([
+  const [eventData, setEventData] = useState([
     {
-      id: 1,
-      eventName: 'Music Concert',
-      eventDate: '2024-11-01',
-      participants: 150,
-      eventType: 'Concert',
-      totalCost: 5000,
-    },
-    {
-      id: 2,
-      eventName: 'Tech Conference',
-      eventDate: '2024-12-15',
-      participants: 300,
-      eventType: 'Conference',
-      totalCost: 10000,
-    },
-    {
-      id: 3,
-      eventName: 'Art Exhibition',
-      eventDate: '2024-10-20',
-      participants: 200,
-      eventType: 'Exhibition',
-      totalCost: 7000,
-    },
-  ]);
+        id: 1,
+        eventName: 'Masak Masak S1',
+        eventDate: '2022-01-01',
+        eventCost: 120000,
+        eventOrganizer: 'Leanne Graham',
+        eventOrganizerId: 1,
+        eventDescribtion: 'lorem100',
+        participants: [
+          {
+            id: 1,
+            participantName: 'Ervin Howell'
+          }
+        ],
+        invoiceDetail: {
+            id: 1,
+            itemName: 'tepung',
+            itemQuantity: 1,
+            itemPrice: 10000,
+            totalPrice:10000
+        }
+    }
+])
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
   const handleDetailClick = (event) => {
-    alert(`Event Details:\nName: ${event.eventName}\nDate: ${event.eventDate}\nParticipants: ${event.participants}\nType: ${event.eventType}\nTotal Cost: $${event.totalCost}`);
+    setEventData = eventData
+    console.log(eventData)
   };
 
-  const filteredEvents = events.filter((event) => {
+  const filteredEvents = eventData.filter((event) => {
     const eventDate = new Date(event.eventDate);
     const start = startDate ? new Date(startDate) : new Date('1900-01-01');
     const end = endDate ? new Date(endDate) : new Date('2100-12-31');
@@ -116,16 +116,22 @@ const BillingPage = () => {
             <tr key={event.id}>
               <td className="py-2 px-4 border">{event.eventName}</td>
               <td className="py-2 px-4 border">{event.eventDate}</td>
-              <td className="py-2 px-4 border">{event.participants}</td>
+              <td className="py-2 px-4 border">{event.participants.map(participant => (
+                <p key={participant.id}>{participant.participantName}</p>
+              ))}</td>
               <td className="py-2 px-4 border">{event.eventType}</td>
-              <td className="py-2 px-4 border">${event.totalCost}</td>
+              <td className="py-2 px-4 border">Rp. {event.eventCost}</td>
               <td className="py-2 px-4 border">
-                <button
+                {/* <button
                   onClick={() => handleDetailClick(event)}
+                  
                   className="bg-blue-500 text-white py-1 px-2 rounded"
                 >
                   Detail
-                </button>
+                </button> */}
+                <Link
+                  to ='/detail/:id'
+                >Detail</Link>
               </td>
             </tr>
           ))}

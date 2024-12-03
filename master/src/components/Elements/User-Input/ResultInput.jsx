@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 
-const DynamicInput = () => {
+const DynamicInput = (props) => {
+  const {eventData} = props
+
+  const [localEventData, setLocalEventData] = useState(eventData)
+
+  console.log(localEventData)
+
   const [users, setUsers] = useState([]);
   const [inputs, setInputs] = useState([{
     id: Date.now(),

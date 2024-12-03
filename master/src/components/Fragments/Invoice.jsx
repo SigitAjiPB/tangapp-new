@@ -33,7 +33,7 @@ const ItemTable = () => {
     setItems(newItems);
   };
   
-  // menghitung totall total hehe
+  // menghitung grand total dari semua item
   const calculateGrandTotal = () => {
     return items.reduce((acc, item) => acc + item.total, 0);
   };

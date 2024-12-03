@@ -99,7 +99,7 @@ const OrganizerInput = (props) => {
             <div className="w-full">
                 <input
                 type="text"
-                value={localEventData[0].eventOrganizer} //sebelumnya {input.value}
+                value={input.value} //sebelumnya {input.value}
                 onChange={(event) => handleChange(input.id, event)}
                 onFocus={() => handleFocus(input.id)}
                 placeholder="Event made by"

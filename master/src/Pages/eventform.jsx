@@ -15,49 +15,30 @@ const EventFormPage = ({addEvent}) => {
     const [message, setMessage] = useState('')
 
 
-    const [eventData, setEventData] = useState([
-        {
-            id: 1,
-            eventName: 'Masak Masak S1',
-            eventDate: '2022-01-01',
-            eventCost: 120000,
-            eventOrganizer: 'Leanne Graham',
-            eventOrganizerId: 1,
-            eventDescribtion: 'lorem100',
-            participants: {
-                id: 1,
-                participantName: 'Ervin Howell'
-            },
-            invoiceDetail: {
-                id: 1,
-                itemName: 'tepung',
-                itemQuantity: 1,
-                itemPrice: 10000,
-                totalPrice:10000
-            }
-        }
-    ])
+    // useEffect(()=> {
+    //     if (userId === eventData[0].eventOrganizerId) {
+    //         setIsEditable(true)
+    //     } else {
+    //         setIsEditable(false)
+    //     }
+    // }, [userId])
 
-    useEffect(()=> {
-        if (userId === eventData[0].eventOrganizerId) {
-            setIsEditable(true)
-        } else {
-            setIsEditable(false)
-        }
-    }, [userId])
+    const handleSubmit = ()=> {
+        console.log(inputValue)
+    }
 
 
     return (
         <> 
-            <section className=" shadow-md rounded-md m-4 p-8 border">  
-                    <div className="text-2xl text-slate-800 px-4 flex w-full justify-between">
-                        <span>Create Event</span>
-                        <button className="px-4 py-2 bg-gradient-to-r from-sky-400 to-sky-600 text-white rounded">Submit</button>
-                    </div>
+            <section className=" shadow-md rounded-md m-4 p-8 border" onSubmit={handleSubmit}>  
                     <form className=" grid grid-cols-6 gap-4 p-4">
+                        <div className="text-2xl text-slate-800 px-4 flex w-full justify-between col-span-6">
+                            <span>Create Event</span>
+                            <button className="px-4 py-2 bg-gradient-to-r from-sky-400 to-sky-600 text-white rounded">Submit</button>
+                        </div>
                         <InputForm
-                            readOnly = {`${isEditable && 'readOnly'}`}
-                            value = {eventData[0].eventName}
+                            // readOnly = {`${isEditable && 'readOnly'}`}
+                            value = {inputValue}
                             wrapp='col-span-6 sm:col-span-2 '
                             label='Event Name' 
                             type='text' 
@@ -70,7 +51,7 @@ const EventFormPage = ({addEvent}) => {
                         ></InputForm>
                         <InputForm
                             
-                            value={eventData[0].eventDate}
+                            value={inputValue}
                             wrapp='col-span-6 sm:col-span-2'
                             label='Date' 
                             type='date' 
@@ -81,8 +62,8 @@ const EventFormPage = ({addEvent}) => {
                             inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none border"
                         ></InputForm>
                         <InputForm
-                            readOnly = {`${isEditable && 'readOnly'}`}
-                            value={eventData[0].eventCost}
+                            // readOnly = {`${isEditable && 'readOnly'}`}
+                            value={inputValue}
                             wrapp='col-span-6 sm:col-span-2'
                             label='Event Cost' 
                             type='text' 
@@ -95,7 +76,7 @@ const EventFormPage = ({addEvent}) => {
 
                         
                         <OrganizerInput
-                            eventData={eventData}
+                            // eventData={eventData}
                             />
 
                         <TextareaForm
@@ -106,7 +87,7 @@ const EventFormPage = ({addEvent}) => {
                             label ="Event Describtion"
                             labelStyle = " block text-sm font-medium text-gray-700"
                             placeholder='Describ your event here' 
-                            value = {eventData[0].eventDescribtion}
+                            value = {inputValue}
                         ></TextareaForm>
 
                         <DynamicInput/>
