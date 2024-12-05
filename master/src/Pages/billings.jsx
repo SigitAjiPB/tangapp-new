@@ -37,47 +37,18 @@
 
 // export default BillingPage
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-const BillingPage = () => {
-  const [eventData, setEventData] = useState([
-    {
-        id: 1,
-        eventName: 'Masak Masak S1',
-        eventDate: '2022-01-01',
-        eventCost: 120000,
-        eventOrganizer: 'Leanne Graham',
-        eventOrganizerId: 1,
-        eventDescribtion: 'lorem100',
-        participants: [
-          {
-            id: 1,
-            participantName: 'Ervin Howell'
-          }
-        ],
-        invoiceDetail: {
-            id: 1,
-            itemName: 'tepung',
-            itemQuantity: 1,
-            itemPrice: 10000,
-            totalPrice:10000
-        }
-    }
-])
+const BillingPage = ({ eventData, formState, handleClickToUpdate}) => {
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
 
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-
-  const handleDetailClick = (event) => {
-    setEventData = eventData
-    console.log(eventData)
-  };
 
   const filteredEvents = eventData.filter((event) => {
     const eventDate = new Date(event.eventDate);
-    const start = startDate ? new Date(startDate) : new Date('1900-01-01');
-    const end = endDate ? new Date(endDate) : new Date('2100-12-31');
+    const start = startDate ? new Date(startDate) : new Date('1900-01-01')
+    const end = endDate ? new Date(endDate) : new Date('2100-12-31')
     return eventDate >= start && eventDate <= end;
   });
 
@@ -122,23 +93,20 @@ const BillingPage = () => {
               <td className="py-2 px-4 border">{event.eventType}</td>
               <td className="py-2 px-4 border">Rp. {event.eventCost}</td>
               <td className="py-2 px-4 border">
-                {/* <button
-                  onClick={() => handleDetailClick(event)}
-                  
-                  className="bg-blue-500 text-white py-1 px-2 rounded"
-                >
-                  Detail
-                </button> */}
                 <Link
-                  to ='/detail/:id'
+                  to={`/detail/${event.id}`}
                 >Detail</Link>
+                <button
+                  onClick={()=>handleClickToUpdate(event)}
+                >update</button>
+                
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
 export default BillingPage;

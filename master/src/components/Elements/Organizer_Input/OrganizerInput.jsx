@@ -3,16 +3,10 @@ import { useIdLogin } from "../../../hooks/useIdLogin";
 
 
 const OrganizerInput = (props) => {
-  const {eventData} = props
-
+  const {eventData, formState} = props
   const [localEventData, setLocalEventData] = useState(eventData)
 
   const userId = useIdLogin()
-
-
-
-
-    const [isEditabel, setIsEditable] = useState(false)
     const [users, setUsers] = useState([]);
     const [inputs, setInputs] = useState([{
       id: Date.now(),
