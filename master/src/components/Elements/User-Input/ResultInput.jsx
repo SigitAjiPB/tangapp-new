@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 
 const DynamicInput = (props) => {
-  const {eventData} = props
+  const {eventData, participants, formState} = props
+
 
   const [localEventData, setLocalEventData] = useState(eventData)
 
@@ -104,7 +105,9 @@ const DynamicInput = (props) => {
           <div className="w-full">
           <input
             type="text"
-            value={input.value}
+            value={formState === 'update' ? participants.map((participant) => (
+              participant.participantName
+            )) : input.value }
             onChange={(event) => handleChange(input.id, event)}
             onFocus={() => handleFocus(input.id)}
             placeholder="Select a user..."

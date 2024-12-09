@@ -45,55 +45,7 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
     }
 })
 
-useEffect(()=> {
-    if (formState === 'update' && selectedEvent) {
-        setInputValue({
-            id: selectedEvent.id,
-            eventName: selectedEvent.eventName,
-            eventDate: selectedEvent.eventDate,
-            eventCost: selectedEvent.eventCost,
-            eventOrganizer: selectedEvent.eventOrganizer,
-            eventOrganizerId: selectedEvent.eventOrganizerId,
-            eventDescribtion: selectedEvent.eventDescribtion,
-            participants: [
-              {
-                id: selectedEvent.participants.id,
-                participantName: selectedEvent.participants.participantName
-              }
-            ],
-            invoiceDetail: {
-                id: selectedEvent.invoiceDetail.id,
-                itemName: selectedEvent.invoiceDetail.itemName,
-                itemQuantity: selectedEvent.invoiceDetail.itemQuantity,
-                itemPrice: selectedEvent.invoiceDetail.itemPrice,
-                totalPrice:selectedEvent.invoiceDetail.totalPrice
-            }
-        })
-    } else {
-        setInputValue({
-            id: 1,
-            eventName: '',
-            eventDate: '',
-            eventCost: 0,
-            eventOrganizer: '',
-            eventOrganizerId: 0,
-            eventDescribtion: '',
-            participants: [
-              {
-                id: 0,
-                participantName: ''
-              }
-            ],
-            invoiceDetail: {
-                id: 0,
-                itemName: '',
-                itemQuantity: 0,
-                itemPrice: 0,
-                totalPrice:0
-            }
-        })
-    }
-}, [formState, selectedEvent])
+
   const [isEditable, setIsEditable] = useState(false)
 
   const handleSubmit = (e) => { 
@@ -122,7 +74,7 @@ useEffect(()=> {
                       <InputForm
                         onChange={handleChange}
                         readOnly = {`${isEditable && 'readOnly'}`}
-                        value = {`${inputValue.eventName}`}
+                        value = {formState === 'update' ? selectedEvent.eventName : ''}
                         wrapp='col-span-6 sm:col-span-2 '
                         label='Event Name' 
                         type='text' 
@@ -135,7 +87,7 @@ useEffect(()=> {
                       ></InputForm>
                       <InputForm
                           
-                          value={inputValue.eventDate}
+                          value={formState === 'update' ? selectedEvent.eventDate : ''}
                           wrapp='col-span-6 sm:col-span-2'
                           label='Date' 
                           type='date' 
@@ -147,7 +99,7 @@ useEffect(()=> {
                       ></InputForm>
                       <InputForm
                           readOnly = {`${isEditable && 'readOnly'}`}
-                          value={inputValue.eventCost}
+                          value={formState === 'update' ? selectedEvent.eventCost : ''}
                           wrapp='col-span-6 sm:col-span-2'
                           label='Event Cost' 
                           type='text' 
@@ -160,6 +112,7 @@ useEffect(()=> {
 
                       
                       <OrganizerInput
+                          value = {formState === 'update' ? selectedEvent.eventOrganizer : ''}
                           eventData={eventData}
                           formState = {formState}
                           />
@@ -172,11 +125,12 @@ useEffect(()=> {
                           label ="Event Describtion"
                           labelStyle = " block text-sm font-medium text-gray-700"
                           placeholder='Describ your event here' 
-                          value = {inputValue.eventDescribtion}
+                          value = {formState === 'update' ? selectedEvent.eventDescribtion : ''}
                       ></TextareaForm>
 
                       <DynamicInput 
-                        event = {event}
+                        participants = {formState === 'update' ? selectedEvent.participants : ''}
+                        formState = {formState}
                       />
 
                       <Invoice/>

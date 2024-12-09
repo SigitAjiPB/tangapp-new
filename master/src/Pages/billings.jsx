@@ -44,6 +44,14 @@ const BillingPage = ({ eventData, formState, handleClickToUpdate}) => {
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
 
+  const handleUpdate = (event) => {
+    handleClickToUpdate(event)
+  }
+
+
+
+  
+
 
   const filteredEvents = eventData.filter((event) => {
     const eventDate = new Date(event.eventDate);
@@ -95,10 +103,12 @@ const BillingPage = ({ eventData, formState, handleClickToUpdate}) => {
               <td className="py-2 px-4 border">
                 <Link
                   to={`/detail/${event.id}`}
-                >Detail</Link>
+                >
                 <button
-                  onClick={()=>handleClickToUpdate(event)}
-                >update</button>
+                  key={event.id}
+                  onClick={()=>handleUpdate(event)}
+                >{event.eventName}</button>
+                  </Link>
                 
               </td>
             </tr>

@@ -3,9 +3,8 @@ import { useIdLogin } from "../../../hooks/useIdLogin";
 
 
 const OrganizerInput = (props) => {
-  const {eventData, formState} = props
+  const {eventData, formState, value} = props
   const [localEventData, setLocalEventData] = useState(eventData)
-
   const userId = useIdLogin()
     const [users, setUsers] = useState([]);
     const [inputs, setInputs] = useState([{
@@ -93,7 +92,7 @@ const OrganizerInput = (props) => {
             <div className="w-full">
                 <input
                 type="text"
-                value={input.value} //sebelumnya {input.value}
+                value={formState === 'update' ? value : ''} //sebelumnya {input.value}
                 onChange={(event) => handleChange(input.id, event)}
                 onFocus={() => handleFocus(input.id)}
                 placeholder="Event made by"

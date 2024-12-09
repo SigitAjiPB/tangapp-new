@@ -23,6 +23,9 @@ function Dashboard() {
 
 
 function App() {
+  
+const [formState, setFormState] = useState('create')
+const [selectedEvent, setSelectedEvent] = useState(null)
   const [eventData, setEventData] = useState([
     {
         id: 1,
@@ -34,7 +37,7 @@ function App() {
         eventDescribtion: 'lorem100',
         participants: [
           {
-            id: 1,
+            id: 2,
             participantName: 'Ervin Howell'
           }
         ],
@@ -56,11 +59,11 @@ function App() {
         eventDescribtion: 'lorem100',
         participants: [
           {
-            id: 1,
+            id: 2,
             participantName: 'Ervin Howell'
           },
           {
-            id: 2,
+            id: 3,
             participantName: 'Onda'
           }
         ],
@@ -74,8 +77,6 @@ function App() {
     }
 ])
 
-const [formState, setFormState] = useState('create')
-const [selectedEvent, setSelectedEvent] = useState(null)
 
 const handleEventSubmit = (event) => { 
   if (formState === 'create') { 
@@ -90,9 +91,11 @@ const handleEventSubmit = (event) => {
 };
 
 const handleClickToUpdate = (event) => {
+  setSelectedEvent(event)
   setFormState('update')
-  selectedEvent(event)
 }
+
+console.log(formState)
 
   return (
     <>
