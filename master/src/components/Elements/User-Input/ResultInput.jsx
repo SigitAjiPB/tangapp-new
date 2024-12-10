@@ -100,7 +100,19 @@ const DynamicInput = (props) => {
     <div className="container mx-auto col-span-6 lg:col-span-2 overflow-y-auto pb-10 mt-6 sm:mt-0">
       <h2 className="text-2xl mb-6 text-slate-800">Add Participant</h2>
 
-      {inputs.map((input, index) => (
+      {formState === 'update' ? participants.map((participant)=> (
+        <div key={participant.id}>
+          <div className="w-full mb-4">
+          <input
+            type="text"
+            value= {participant.participantName}
+            className="w-full p-2 border border-gray-300 rounded-md"
+          />
+
+
+          </div>
+        </div>
+      )) : inputs.map((input, index) => (
         <div key={input.id} className="mb-4 relative flex gap-2">
           <div className="w-full">
           <input
@@ -136,15 +148,13 @@ const DynamicInput = (props) => {
 
           </div>
 
-          {
-            index === 0 && (
+          {index === 0 && (
               <span
               className="px-4 py-2 bg-transparant text-transparent cursor-default select-none"
             >
               X
             </span>
-            )
-          }
+            )}
 
 
           {index > 0 && (
@@ -155,13 +165,10 @@ const DynamicInput = (props) => {
               X
             </button>
           )}
-
-
-
-
-          {/* Tombol Add/Delete */}
         </div>
       ))}
+
+
           <div className="flex justify-between mt-2">
             <button
               onClick={handleAddInput}
