@@ -41,13 +41,20 @@ const [selectedEvent, setSelectedEvent] = useState(null)
             participantName: 'Ervin Howell'
           }
         ],
-        invoiceDetail: {
+        invoiceDetail: [{
             id: 1,
             itemName: 'tepung',
             itemQuantity: 1,
             itemPrice: 10000,
             totalPrice:10000
-        }
+        },
+        {
+          id: 2,
+          itemName: 'bakso',
+          itemQuantity: 1,
+          itemPrice: 28000,
+          totalPrice:28000
+        }]
     },
     {
         id: 2,
@@ -67,13 +74,15 @@ const [selectedEvent, setSelectedEvent] = useState(null)
             participantName: 'Onda'
           }
         ],
-        invoiceDetail: {
+        invoiceDetail: [
+          {
             id: 1,
             itemName: 'Garam',
             itemQuantity: 2,
             itemPrice: 4000,
             totalPrice:8000
-        }
+        },
+      ]
     }
 ])
 

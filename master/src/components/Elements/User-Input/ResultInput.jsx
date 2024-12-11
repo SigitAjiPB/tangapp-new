@@ -108,6 +108,7 @@ const DynamicInput = (props) => {
             type="text"
             value= {participant.participantName}
             className="w-full p-2 border border-gray-300 rounded-md"
+            onChange={handleChange}
           />
           </div>
         </div>

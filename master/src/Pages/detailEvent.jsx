@@ -133,7 +133,10 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
                         formState = {formState}
                       />
 
-                      <Invoice/>
+                      <Invoice
+                        invoiceDetails = {formState === 'update' ? selectedEvent.invoiceDetail : ''}
+                        formState = {formState}
+                      />
 
                       
                   </form>

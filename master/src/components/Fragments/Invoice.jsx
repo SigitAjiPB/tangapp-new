@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-const ItemTable = () => {
+const ItemTable = (props) => {
   // state awal
   const [items, setItems] = useState([{ id: 1, name: '', qty: 0, price: 0, total: 0 }]);
+  const {invoiceDetails, formState} = props
 
   const handleInputChange = (index, field, value) => {
     // handleInputChange - menangani perubahan input di setiap baris 
@@ -38,6 +39,11 @@ const ItemTable = () => {
     return items.reduce((acc, item) => acc + item.total, 0);
   };
 
+  const calculateTest =() => {
+    return invoiceDetails.reduce((acc, item) => acc + item.totalPrice, 0)
+  }
+
+
   return (
     <div className="container col-span-6 lg:col-span-4">
       <h1 className='text-2xl inline text-slate-800'>Invoice</h1>
@@ -52,7 +58,42 @@ const ItemTable = () => {
           </tr>
         </thead>
         <tbody>
-          {items.map((item, index) => (
+          {formState === 'update' ? invoiceDetails.map((invoiceDetail, index)=> (
+            <tr key ={invoiceDetail.id}>
+              <td className="py-2 pr-2 pl-4 border-b">
+                <input
+                  type="text"
+                  value={invoiceDetail.itemName}
+                  onChange={(e) => handleInputChange(index, 'name', e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded"
+                />
+              </td>
+              <td className="py-2 pr-2 pl-4 border-b">
+                <input
+                  type="text"
+                  value={invoiceDetail.itemQuantity}
+                  onChange={(e) => handleInputChange(index, 'quantity', e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded"
+                />
+              </td>
+              <td className="py-2 pr-2 pl-4 border-b">
+                <input
+                  type="text"
+                  value={invoiceDetail.itemPrice}
+                  onChange={(e) => handleInputChange(index, 'price', e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded"
+                />
+              </td>
+              <td className="py-2 pr-2 pl-4 border-b">
+                <input
+                  type="text"
+                  value={invoiceDetail.totalPrice}
+                  onChange={(e) => handleInputChange(index, 'total', e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded"
+                />
+              </td>
+            </tr>
+          )): items.map((item, index) => (
             <tr key={item.id}>
               <td className="py-2 pr-2 pl-4 border-b">
                 <input
@@ -106,7 +147,7 @@ const ItemTable = () => {
         Add Item
       </button>
       <div className="mt-4 p-2 bg-gray-100 border border-gray-300 rounded">
-        <strong>Grand Total: </strong>Rp {calculateGrandTotal().toLocaleString('id-ID')}
+        <strong>Grand Total: </strong>Rp {formState === 'update' ? calculateTest().toLocaleString('id-ID') : calculateGrandTotal().toLocaleString('id-ID')}
       </div>
     </div>
   );
