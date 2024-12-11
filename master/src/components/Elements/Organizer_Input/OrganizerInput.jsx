@@ -92,7 +92,7 @@ const OrganizerInput = (props) => {
             <div className="w-full">
                 <input
                 type="text"
-                value={formState === 'update' ? value : ''} //sebelumnya {input.value}
+                value={formState === 'update' ? value : ''} // input berisikan nama event Organizer dari nama yang dikirimkan melalui porps value
                 onChange={(event) => handleChange(input.id, event)}
                 onFocus={() => handleFocus(input.id)}
                 placeholder="Event made by"

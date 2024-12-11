@@ -100,6 +100,7 @@ const DynamicInput = (props) => {
     <div className="container mx-auto col-span-6 lg:col-span-2 overflow-y-auto pb-10 mt-6 sm:mt-0">
       <h2 className="text-2xl mb-6 text-slate-800">Add Participant</h2>
 
+      {/* buat kondisi dimana jika kondisi update, input akan berisikan nama partisipant dari list event */}
       {formState === 'update' ? participants.map((participant)=> (
         <div key={participant.id}>
           <div className="w-full mb-4">
@@ -108,10 +109,11 @@ const DynamicInput = (props) => {
             value= {participant.participantName}
             className="w-full p-2 border border-gray-300 rounded-md"
           />
-
-
           </div>
         </div>
+
+
+        // jika kondisinya bukan update maka input menampilkan dropdown fething dari jsonPlaceholder 
       )) : inputs.map((input, index) => (
         <div key={input.id} className="mb-4 relative flex gap-2">
           <div className="w-full">
