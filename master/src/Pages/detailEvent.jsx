@@ -13,12 +13,15 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
   const { id } = useParams(); 
   const event = eventData.find(event => event.id === parseInt(id))
   const userId = useIdLogin()
-  
+  const [isReadOnly, setIsReadOnly] = useState(false)
+
+  console.log(userId)
+
     useEffect(()=> {
-        if (userId === eventData[0].eventOrganizerId) {
-            setIsEditable(true)
+        if (userId != selectedEvent.eventOrganizerId) {
+            setIsReadOnly(true)
         } else {
-            setIsEditable(false)
+            setIsReadOnly(false)
         }
     }, [userId])
 
@@ -46,8 +49,6 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
 })
 
 
-  const [isEditable, setIsEditable] = useState(false)
-
   const handleSubmit = (e) => { 
     e.preventDefault() 
     handleEventSubmit(inputValue)
@@ -73,7 +74,7 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
                   </div>
                       <InputForm
                         onChange={handleChange}
-                        readOnly = {`${isEditable && 'readOnly'}`}
+                        readOnly = {isReadOnly}
                         value = {formState === 'update' ? selectedEvent.eventName : ''}
                         wrapp='col-span-6 sm:col-span-2 '
                         label='Event Name' 
@@ -86,7 +87,7 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
                           
                       ></InputForm>
                       <InputForm
-                          
+                          readOnly = {isReadOnly }
                           value={formState === 'update' ? selectedEvent.eventDate : ''}
                           wrapp='col-span-6 sm:col-span-2'
                           label='Date' 
@@ -98,7 +99,7 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
                           inputStyle="mt-1 p-2 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm outline-none border"
                       ></InputForm>
                       <InputForm
-                          readOnly = {`${isEditable && 'readOnly'}`}
+                          readOnly = {isReadOnly}
                           value={formState === 'update' ? selectedEvent.eventCost : ''}
                           wrapp='col-span-6 sm:col-span-2'
                           label='Event Cost' 

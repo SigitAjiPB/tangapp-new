@@ -3,7 +3,7 @@ import { useIdLogin } from "../../../hooks/useIdLogin";
 
 
 const OrganizerInput = (props) => {
-  const {eventData, formState, value} = props
+  const {eventData, formState, value, readOnly} = props
   const [localEventData, setLocalEventData] = useState(eventData)
   const userId = useIdLogin()
     const [users, setUsers] = useState([]);
@@ -91,6 +91,7 @@ const OrganizerInput = (props) => {
           <div key={input.id} className="mb-4 relative flex gap-2">
             <div className="w-full">
                 <input
+                readOnly ={readOnly}
                 type="text"
                 value={formState === 'update' ? value : ''} // input berisikan nama event Organizer dari nama yang dikirimkan melalui porps "value"
                 onChange={(event) => handleChange(input.id, event)}

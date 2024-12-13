@@ -61,7 +61,7 @@ const [selectedEvent, setSelectedEvent] = useState(null)
         eventName: 'Masak Masak S2',
         eventDate: '2024-02-02',
         eventCost: 90000,
-        eventOrganizer: 'Leanne Graham',
+        eventOrganizer: 'Kunyuks ',
         eventOrganizerId: 2,
         eventDescribtion: 'lorem100',
         participants: [
@@ -103,7 +103,6 @@ const handleClickToUpdate = (event) => {
   setSelectedEvent(event)
   setFormState('update')
 }
-
 console.log(formState)
 
   return (
