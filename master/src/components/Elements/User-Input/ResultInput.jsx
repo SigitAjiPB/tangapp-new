@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 
-const DynamicInput = () => {
+const DynamicInput = (props) => {
+  const {eventData, participants, formState} = props
+
+
+  const [localEventData, setLocalEventData] = useState(eventData)
+
   const [users, setUsers] = useState([]);
   const [inputs, setInputs] = useState([{
     id: Date.now(),
@@ -95,12 +100,29 @@ const DynamicInput = () => {
     <div className="container mx-auto col-span-6 lg:col-span-2 overflow-y-auto pb-10 mt-6 sm:mt-0">
       <h2 className="text-2xl mb-6 text-slate-800">Add Participant</h2>
 
-      {inputs.map((input, index) => (
+      {/* buat kondisi dimana jika kondisi update, input akan berisikan nama partisipant dari list event */}
+      {formState === 'update' ? participants.map((participant)=> (
+        <div key={participant.id}>
+          <div className="w-full mb-4">
+          <input
+            type="text"
+            value= {participant.participantName}
+            className="w-full p-2 border border-gray-300 rounded-md"
+            onChange={handleChange}
+          />
+          </div>
+        </div>
+
+
+        // jika kondisinya bukan update maka input menampilkan dropdown fething dari jsonPlaceholder 
+      )) : inputs.map((input, index) => (
         <div key={input.id} className="mb-4 relative flex gap-2">
           <div className="w-full">
           <input
             type="text"
-            value={input.value}
+            value={formState === 'update' ? participants.map((participant) => (
+              participant.participantName
+            )) : input.value }
             onChange={(event) => handleChange(input.id, event)}
             onFocus={() => handleFocus(input.id)}
             placeholder="Select a user..."
@@ -129,15 +151,13 @@ const DynamicInput = () => {
 
           </div>
 
-          {
-            index === 0 && (
+          {index === 0 && (
               <span
               className="px-4 py-2 bg-transparant text-transparent cursor-default select-none"
             >
               X
             </span>
-            )
-          }
+            )}
 
 
           {index > 0 && (
@@ -148,13 +168,10 @@ const DynamicInput = () => {
               X
             </button>
           )}
-
-
-
-
-          {/* Tombol Add/Delete */}
         </div>
       ))}
+
+
           <div className="flex justify-between mt-2">
             <button
               onClick={handleAddInput}

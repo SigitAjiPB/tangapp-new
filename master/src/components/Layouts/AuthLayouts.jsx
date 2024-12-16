@@ -1,6 +1,7 @@
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { DarkMode } from '../../context/DarkMode'
+
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 
 const AuthLayout = (props) => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkMode)
@@ -8,7 +9,9 @@ const AuthLayout = (props) => {
     console.log(isDarkMode)
   }
 
-  const { children, type, tittle } = props
+  
+
+    const {children, type, tittle} = props;
   return (
     <div className='flex justify-center items-center h-screen w-full'>
       <div className='w-full max-w-xs'>

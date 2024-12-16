@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useLogin } from '../hooks/useLogin'
 
 const LoginSuccess = () => {
   const [user, setUser] = useState(null)
@@ -15,6 +16,8 @@ const LoginSuccess = () => {
         const base64Url = token.split('.')[1]
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
         const decodedPayload = JSON.parse(atob(base64))
+        localStorage.setItem('token', token)
+        useLogin()
 
         setUser({
           email: decodedPayload.email,

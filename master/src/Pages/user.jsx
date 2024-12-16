@@ -1,11 +1,13 @@
 import { useLogin } from "../hooks/useLogin"
 import { useIatLogin } from "../hooks/useIatLogin"
+import { useIdLogin} from "../hooks/useIdLogin"
 
 
 
 const UserPage = ()=> {
     const username = useLogin()
     const userIat = useIatLogin()
+    const userId = useIdLogin()
     
     return (
         <div className=" flex flex-col items-center justify-center space-y-6  divide-y  p-8 ">
@@ -16,6 +18,7 @@ const UserPage = ()=> {
             <div className="flex flex-col justify-center items-center text-slate-600">
                 <div>{` ${username}`}</div>
                 <div>{`${userIat}`}</div>
+                <div>{` ${userId}`}</div>
 
             </div>
         </div>

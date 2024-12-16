@@ -14,3 +14,7 @@ export const getIat = (token) => {
   const decoded = jwtDecode(token)
   return decoded.exp
 }
+export const getId = (token) => {
+  const decoded = jwtDecode(token)
+  return decoded.sub
+}
