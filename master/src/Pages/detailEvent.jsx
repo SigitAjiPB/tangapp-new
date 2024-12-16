@@ -116,6 +116,7 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
                           value = {formState === 'update' ? selectedEvent.eventOrganizer : ''}
                           eventData={eventData}
                           formState = {formState}
+                          readOnly ={isReadOnly}
                           />
 
                       <TextareaForm
