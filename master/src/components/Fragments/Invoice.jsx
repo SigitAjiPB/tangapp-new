@@ -5,9 +5,11 @@ const ItemTable = (props) => {
   const [items, setItems] = useState([{ id: 1, name: '', qty: 0, price: 0, total: 0 }]);
   const {invoiceDetails, formState} = props
 
+  const [localInvoiceDetails, setLocalInvoiceDetails] = useState(invoiceDetails)
+
+
   const handleInputChange = (index, field, value) => {
-    // handleInputChange - menangani perubahan input di setiap baris 
-    // state item yang di update 
+    // handleInputChange - menangani perubahan input di setiap baris  state item yang di update
     const newItems = [...items]; 
     newItems[index][field] = value;
 
@@ -28,10 +30,21 @@ const ItemTable = (props) => {
     e.preventDefault()
   };
 
+  const addItemUpdate = (e) => {
+    setLocalInvoiceDetails([...localInvoiceDetails, { id: localInvoiceDetails.length + 1, itemName:'', itemQuantity: 0, Itemprice: 0, totalPrice: 0}])
+    e.preventDefault()
+  }
+
   // fungsi delete input - tapi berdasarkan index yang ada
   const deleteItem = (index) => {
     const newItems = items.filter((item, i) => i !== index);
     setItems(newItems);
+               
+  };
+  const deleteItemUpdate = (index) => {
+    const newUpdateItem = localInvoiceDetails.filter((item, i) => i !== index);
+    setLocalInvoiceDetails(newUpdateItem);
+               
   };
   
   // menghitung grand total dari semua item
@@ -40,7 +53,7 @@ const ItemTable = (props) => {
   };
 
   const calculateTest =() => {
-    return invoiceDetails.reduce((acc, item) => acc + item.totalPrice, 0)
+    return localInvoiceDetails.reduce((acc, item) => acc + item.totalPrice, 0)
   }
 
 
@@ -58,7 +71,7 @@ const ItemTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {formState === 'update' ? invoiceDetails.map((invoiceDetail, index)=> (
+          {formState === 'update' ? localInvoiceDetails.map((invoiceDetail, index)=> (
             <tr key ={invoiceDetail.id}>
               <td className="py-2 pr-2 pl-4 border-b">
                 <input
@@ -91,6 +104,14 @@ const ItemTable = (props) => {
                   onChange={(e) => handleInputChange(index, 'total', e.target.value)}
                   className="w-full p-2 border border-gray-300 rounded"
                 />
+              </td>
+              <td className="py-2 px-4 border-b">
+                <button
+                  onClick={() => deleteItemUpdate(index)}
+                  className="p-2 bg-gradient-to-r from-red-400 to-red-600 text-white rounded"
+                >
+                  Hapus
+                </button>
               </td>
             </tr>
           )): items.map((item, index) => (
@@ -130,6 +151,7 @@ const ItemTable = (props) => {
               </td>
               <td className="py-2 px-4 border-b">
                 <button
+                  
                   onClick={() => deleteItem(index)}
                   className="p-2 bg-gradient-to-r from-red-400 to-red-600 text-white rounded"
                 >
@@ -141,7 +163,7 @@ const ItemTable = (props) => {
         </tbody>
       </table>
       <button
-        onClick={addItem}
+        onClick={formState === 'update' ?addItemUpdate: addItem}
         className="mt-4 p-2 bg-gradient-to-r from-sky-400 to-sky-600 text-white rounded"
       >
         Add Item

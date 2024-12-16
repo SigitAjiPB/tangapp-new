@@ -32,9 +32,9 @@ const [selectedEvent, setSelectedEvent] = useState(null)
         eventName: 'Masak Masak S1',
         eventDate: '2022-01-01',
         eventCost: 120000,
-        eventOrganizer: 'Leanne Graham',
+        eventOrganizer: 'johnd',
         eventOrganizerId: 1,
-        eventDescribtion: 'lorem100',
+        eventDescribtion: 'Event ini dapat di ubah karena Event Organizer Valid',
         participants: [
           {
             id: 2,
@@ -63,7 +63,7 @@ const [selectedEvent, setSelectedEvent] = useState(null)
         eventCost: 90000,
         eventOrganizer: 'Kunyuks ',
         eventOrganizerId: 2,
-        eventDescribtion: 'lorem100',
+        eventDescribtion: 'Event ini tidak dapat di ubah karena Event Organizer tidak Valid',
         participants: [
           {
             id: 2,
@@ -103,7 +103,6 @@ const handleClickToUpdate = (event) => {
   setSelectedEvent(event)
   setFormState('update')
 }
-console.log(formState)
 
   return (
     <>

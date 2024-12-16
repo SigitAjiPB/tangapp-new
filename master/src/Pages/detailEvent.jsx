@@ -15,8 +15,6 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
   const userId = useIdLogin()
   const [isReadOnly, setIsReadOnly] = useState(false)
 
-  console.log(userId)
-
     useEffect(()=> {
         if (userId != selectedEvent.eventOrganizerId) {
             setIsReadOnly(true)
@@ -120,6 +118,7 @@ const DetailEventPage = ({ eventData, formState, handleEventSubmit, selectedEven
                           />
 
                       <TextareaForm
+                          readOnly = {isReadOnly}
                           textareaStyle='w-full rounded-lg text-sm outline-none mt-1 p-2 border-gray-200 bg-white text-gray-700 shadow-sm outline-none border'
                           wrapp = 'col-span-4'
                           name = "eventDescribtion"
