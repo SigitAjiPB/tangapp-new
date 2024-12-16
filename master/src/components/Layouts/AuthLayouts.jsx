@@ -1,13 +1,10 @@
 
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { DarkMode } from "../../context/DarkMode";
 
 
 const AuthLayout = (props) => {
 
-  const {isDarkMode, setIsDarkMode} = useContext(DarkMode)
-  {console.log(isDarkMode);}
   
 
     const {children, type, tittle} = props;

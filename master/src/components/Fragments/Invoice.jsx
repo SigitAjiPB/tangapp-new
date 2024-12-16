@@ -61,7 +61,7 @@ const ItemTable = (props) => {
     <div className="container col-span-6 lg:col-span-4">
       <h1 className='text-2xl inline text-slate-800'>Invoice</h1>
       <table className="min-w-full mt-6 bg-white drop-shadow-md rounded-md border-gray-300">
-        <thead>
+        <thead> 
           <tr className=' text-slate-800'>
             <th className="py-4 px-4 border-b">Nama Barang</th>
             <th className="py-4 px-4 border-b">Qty</th>
