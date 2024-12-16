@@ -6,7 +6,7 @@ const FormLogin = () => {
 
   const handleGoogleLogin = () => {
     const popup = window.open(
-      'http://localhost:8080/api/auth/google',
+      'http://localhost:7878/v1/auth/google',
       '_blank',
       'width=500,height=600'
     )
