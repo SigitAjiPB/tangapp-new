@@ -38,7 +38,7 @@ const FormLogin = () => {
       {loginFailed && <p className='text-red-500'>{loginFailed}</p>}
       <button
         onClick={handleGoogleLogin}
-        className='bg-sky-400 w-full text-white font-bold h-10 px-6 font-semibold rounded-lg'>
+        className='bg-sky-400 w-full text-white font-bold h-10 px-6 rounded-lg'>
         Sign in with Google
       </button>
     </div>
