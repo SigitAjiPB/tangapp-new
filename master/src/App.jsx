@@ -116,7 +116,6 @@ const handleClickToUpdate = (event) => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/profile' element={<ProfilePage />} />
-        <Route path='/auth-callback' element={<AuthCallback />} />
       </Routes>
     </>
   )

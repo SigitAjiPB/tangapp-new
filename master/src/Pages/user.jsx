@@ -18,7 +18,6 @@ const UserPage = ()=> {
             <div className="flex flex-col justify-center items-center text-slate-600">
                 <div>{` ${username}`}</div>
                 <div>{`${userIat}`}</div>
-                <div>{` ${userId}`}</div>
 
             </div>
         </div>
