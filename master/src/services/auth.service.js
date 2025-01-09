@@ -10,7 +10,7 @@ export const getUsername = (token) => {
   const decoded = jwtDecode(token)
   return decoded.name
 }
-export const getIat = (token) => {
+export const getId = (token) => {
   const decoded = jwtDecode(token)
-  return decoded.exp
+  return decoded.sub
 }
